@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 01:17:23 by reasuke           #+#    #+#             */
-/*   Updated: 2023/09/05 17:59:27 by reasuke          ###   ########.fr       */
+/*   Updated: 2023/09/22 20:39:41 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	void	*ret;
 
+	if (count && SIZE_MAX / count < size)
+		return (malloc(SIZE_MAX));
 	ret = malloc(count * size);
 	if (!ret)
 		return (NULL);

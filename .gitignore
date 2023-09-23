@@ -58,6 +58,7 @@ dkms.conf
 main.c
 libftTester/
 libft-unit-test/
+libft-tester-tokyo
 
 # vscode settings
 .vscode/
