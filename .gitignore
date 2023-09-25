@@ -56,6 +56,8 @@ dkms.conf
 
 # test files
 main.c
+ft_strtol.c
+out.txt
 libftTester/
 libft-unit-test/
 libft-tester-tokyo
