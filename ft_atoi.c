@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 16:18:20 by reasuke           #+#    #+#             */
-/*   Updated: 2023/09/27 01:20:32 by reasuke          ###   ########.fr       */
+/*   Updated: 2023/09/28 17:38:54 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 #define LOWER_BASE "0123456789abcdefghijklmnopqrstuvwxyz"
 #define UPPER_BASE "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+#define MAX_OVERFLOW 0b01
+#define MIN_OVERFLOW 0b10
 
-typedef struct s_spec{
+typedef struct s_conv_spec{
 	const char	*str;
 	char		**endptr;
 	long		nb;
@@ -23,12 +25,35 @@ typedef struct s_spec{
 	int			sign;
 	int			digit_cnt;
 	int			overflow;
-}	t_spec;
+}	t_conv_spec;
 
-static void	convert_str_to_long(t_spec *sp)
+static int	parse_prefix(t_conv_spec *sp)
 {
 	ptrdiff_t	index;
 
+	if (!ft_strncmp(sp->str, "0x", 2))
+	{
+		index = ft_strchr(UPPER_BASE, sp->str[2]) - UPPER_BASE;
+		if (index < 0 || sp->base <= index)
+			index = ft_strchr(LOWER_BASE, sp->str[2]) - LOWER_BASE;
+		if (index < 0 || sp->base <= index)
+		{
+			sp->digit_cnt++;
+			sp->str++;
+			return (0);
+		}
+		sp->digit_cnt++;
+		sp->str += 2;
+	}
+	return (1);
+}
+
+static void	convert_str_to_long(t_conv_spec *sp)
+{
+	ptrdiff_t	index;
+
+	if (sp->base == 16 && !parse_prefix(sp))
+		return ;
 	while (1)
 	{
 		index = ft_strchr(UPPER_BASE, *sp->str) - UPPER_BASE;
@@ -37,19 +62,22 @@ static void	convert_str_to_long(t_spec *sp)
 		if (index < 0 || sp->base <= index)
 			break ;
 		if (sp->sign * sp->nb > (LONG_MAX - index) / sp->base && !sp->overflow)
-			sp->overflow = 0b01;
+			sp->overflow = MAX_OVERFLOW;
 		if (sp->sign * sp->nb < (LONG_MIN + index) / sp->base && !sp->overflow)
-			sp->overflow = 0b10;
+			sp->overflow = MIN_OVERFLOW;
 		sp->nb = sp->nb * sp->base + index;
 		sp->digit_cnt++;
 		sp->str++;
 	}
 }
 
-static int	init_spec(t_spec *sp, const char *str, char **endptr, int base)
+static int	init_conv_spec(t_conv_spec *sp,
+				const char *str, char **endptr, int base)
 {
 	sp->str = str;
 	sp->endptr = endptr;
+	if (sp->endptr)
+		*sp->endptr = (char *)str;
 	sp->nb = 0;
 	sp->sign = 1;
 	sp->digit_cnt = 0;
@@ -59,11 +87,8 @@ static int	init_spec(t_spec *sp, const char *str, char **endptr, int base)
 	while (*sp->str == ' ' || ('\t' <= *sp->str && *sp->str <= '\r'))
 		sp->str++;
 	if (*sp->str == '+' || *sp->str == '-')
-	{
-		if (*sp->str == '-')
+		if (*sp->str++ == '-')
 			sp->sign *= -1;
-		sp->str++;
-	}
 	if (base)
 		sp->base = base;
 	else if (*sp->str == '0' && (sp->str[1] == 'x' || sp->str[1] == 'X'))
@@ -77,24 +102,24 @@ static int	init_spec(t_spec *sp, const char *str, char **endptr, int base)
 
 static long	ft_strtol(const char *str, char **endptr, int base)
 {
-	t_spec	sp;
+	t_conv_spec	sp;
 
-	if (init_spec(&sp, str, endptr, base))
+	if (init_conv_spec(&sp, str, endptr, base))
 		convert_str_to_long(&sp);
-	if (sp.endptr)
+	if (sp.endptr && sp.digit_cnt)
 		*sp.endptr = (char *)(sp.str);
 	if (sp.overflow)
 		errno = ERANGE;
 	else if (sp.digit_cnt == 0)
 		errno = EINVAL;
-	if (sp.overflow == 0b01)
+	if (sp.overflow == MAX_OVERFLOW)
 		return (LONG_MAX);
-	else if (sp.overflow == 0b10)
+	else if (sp.overflow == MIN_OVERFLOW)
 		return (LONG_MIN);
 	return (sp.sign * sp.nb);
 }
 
 int	ft_atoi(const char *str)
 {
-	return (ft_strtol(str, (char **) NULL, 10));
+	return (ft_strtol(str, NULL, 10));
 }
