@@ -30,12 +30,17 @@ typedef struct s_conv_spec{
 static int	parse_prefix(t_conv_spec *sp)
 {
 	ptrdiff_t	index;
+	char		*ptr;
 
 	if (!ft_strncmp(sp->str, "0x", 2))
 	{
-		index = ft_strchr(UPPER_BASE, sp->str[2]) - UPPER_BASE;
-		if (index < 0 || sp->base <= index)
-			index = ft_strchr(LOWER_BASE, sp->str[2]) - LOWER_BASE;
+		index = -1;
+		ptr = ft_strchr(UPPER_BASE, *sp->str);
+		if (ptr)
+			index = ptr - UPPER_BASE;
+		ptr = ft_strchr(LOWER_BASE, *sp->str);
+		if (ptr)
+			index = ptr - LOWER_BASE;
 		if (index < 0 || sp->base <= index)
 		{
 			sp->digit_cnt++;
@@ -51,14 +56,19 @@ static int	parse_prefix(t_conv_spec *sp)
 static void	convert_str_to_long(t_conv_spec *sp)
 {
 	ptrdiff_t	index;
+	char		*ptr;
 
 	if (sp->base == 16 && !parse_prefix(sp))
 		return ;
 	while (1)
 	{
-		index = ft_strchr(UPPER_BASE, *sp->str) - UPPER_BASE;
-		if (index < 0 || sp->base <= index)
-			index = ft_strchr(LOWER_BASE, *sp->str) - LOWER_BASE;
+		index = -1;
+		ptr = ft_strchr(UPPER_BASE, *sp->str);
+		if (ptr)
+			index = ptr - UPPER_BASE;
+		ptr = ft_strchr(LOWER_BASE, *sp->str);
+		if (ptr)
+			index = ptr - LOWER_BASE;
 		if (index < 0 || sp->base <= index)
 			break ;
 		if (sp->sign * sp->nb > (LONG_MAX - index) / sp->base && !sp->overflow)
