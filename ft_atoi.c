@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 16:18:20 by reasuke           #+#    #+#             */
-/*   Updated: 2023/09/28 17:38:54 by reasuke          ###   ########.fr       */
+/*   Updated: 2023/09/29 12:15:02 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ static int	parse_prefix(t_conv_spec *sp)
 	if (!ft_strncmp(sp->str, "0x", 2))
 	{
 		index = -1;
-		ptr = ft_strchr(UPPER_BASE, *sp->str);
+		ptr = ft_strchr(UPPER_BASE, sp->str[2]);
 		if (ptr)
 			index = ptr - UPPER_BASE;
-		ptr = ft_strchr(LOWER_BASE, *sp->str);
+		ptr = ft_strchr(LOWER_BASE, sp->str[2]);
 		if (ptr)
 			index = ptr - LOWER_BASE;
 		if (index < 0 || sp->base <= index)
