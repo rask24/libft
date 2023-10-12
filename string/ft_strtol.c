@@ -1,14 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strtol.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/02 16:18:20 by reasuke           #+#    #+#             */
-/*   Updated: 2023/09/29 12:15:02 by reasuke          ###   ########.fr       */
+/*   Created: 2023/09/28 16:42:38 by reasuke           #+#    #+#             */
+/*   Updated: 2023/10/12 19:02:45 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
 
 #include "libft.h"
 
@@ -110,7 +112,7 @@ static int	init_conv_spec(t_conv_spec *sp,
 	return (1);
 }
 
-static long	ft_strtol(const char *str, char **endptr, int base)
+long	ft_strtol(const char *str, char **endptr, int base)
 {
 	t_conv_spec	sp;
 
@@ -127,9 +129,4 @@ static long	ft_strtol(const char *str, char **endptr, int base)
 	else if (sp.overflow == MIN_OVERFLOW)
 		return (LONG_MIN);
 	return (sp.sign * sp.nb);
-}
-
-int	ft_atoi(const char *str)
-{
-	return (ft_strtol(str, NULL, 10));
 }

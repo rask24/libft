@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/03 01:17:23 by reasuke           #+#    #+#             */
-/*   Updated: 2023/09/24 19:53:04 by reasuke          ###   ########.fr       */
+/*   Created: 2023/09/02 16:18:20 by reasuke           #+#    #+#             */
+/*   Updated: 2023/10/12 19:02:50 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+int	ft_atoi(const char *str)
 {
-	void	*ret;
-
-	if (count && SIZE_MAX / count < size)
-		return (malloc(SIZE_MAX));
-	ret = malloc(count * size);
-	if (!ret)
-		return (NULL);
-	return (ft_memset(ret, 0, count * size));
+	return (ft_strtol(str, NULL, 10));
 }
