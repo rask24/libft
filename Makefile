@@ -1,4 +1,8 @@
 NAME = libft.a
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror -I .
+ARFLAGS = cr
+
 SRCS = $(addprefix memory/,\
 			ft_bzero.c \
 			ft_calloc.c \
@@ -7,12 +11,14 @@ SRCS = $(addprefix memory/,\
 			ft_memcmp.c \
 			ft_memcpy.c \
 			ft_memmove.c \
-			ft_memset.c	) \
+			ft_memset.c \
+		) \
 		$(addprefix output/, \
 			ft_putchar_fd.c \
 			ft_putendl_fd.c \
 			ft_putnbr_fd.c \
-			ft_putstr_fd.c) \
+			ft_putstr_fd.c \
+		) \
 		$(addprefix type/, \
 			ft_isalnum.c \
 			ft_isalpha.c \
@@ -20,7 +26,8 @@ SRCS = $(addprefix memory/,\
 			ft_isdigit.c \
 			ft_isprint.c \
 			ft_tolower.c \
-			ft_toupper.c) \
+			ft_toupper.c \
+		) \
 		$(addprefix string/, \
 			ft_atoi.c \
 			ft_itoa.c \
@@ -37,7 +44,8 @@ SRCS = $(addprefix memory/,\
 			ft_strnstr.c \
 			ft_strrchr.c \
 			ft_strtol.c \
-			ft_strtrim.c) \
+			ft_strtrim.c \
+		) \
 		$(addprefix list/, \
 			ft_lstadd_back.c \
 			ft_lstadd_front.c \
@@ -47,12 +55,17 @@ SRCS = $(addprefix memory/,\
 			ft_lstlast.c \
 			ft_lstmap.c \
 			ft_lstnew.c \
-			ft_lstsize.c)
+			ft_lstsize.c \
+		) \
+		$(addprefix ft_printf/, \
+			ft_printf.c \
+			nbr_utils.c \
+			conversion_router.c \
+			parse_spec.c \
+			print_integer.c \
+			print_string.c \
+		)
 OBJS = $(SRCS:.c=.o)
-
-CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I .
-ARFLAGS = cr
 
 all: $(NAME)
 
