@@ -6,13 +6,13 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 14:17:21 by reasuke           #+#    #+#             */
-/*   Updated: 2023/10/11 17:38:46 by reasuke          ###   ########.fr       */
+/*   Updated: 2023/10/12 20:13:48 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	parse_flags(t_format_spec *fs, t_format_result *fr)
+static void	_parse_flags(t_format_spec *fs, t_format_result *fr)
 {
 	char		*ptr;
 	ptrdiff_t	index;
@@ -28,7 +28,7 @@ static void	parse_flags(t_format_spec *fs, t_format_result *fr)
 	}
 }
 
-static void	parse_width(t_format_spec *fs, t_format_result *fr, va_list *ap)
+static void	_parse_width(t_format_spec *fs, t_format_result *fr, va_list *ap)
 {
 	if (*fr->format == '*')
 	{
@@ -48,7 +48,7 @@ static void	parse_width(t_format_spec *fs, t_format_result *fr, va_list *ap)
 	}
 }
 
-static void	parse_precision(t_format_spec *fs, t_format_result *fr, va_list *ap)
+static void	_parse_precision(t_format_spec *fs, t_format_result *fr, va_list *ap)
 {
 	if (*fr->format == '.')
 	{
@@ -69,7 +69,7 @@ static void	parse_precision(t_format_spec *fs, t_format_result *fr, va_list *ap)
 	}
 }
 
-static void	parse_conversion(t_format_spec *fs, t_format_result *fr)
+static void	_parse_conversion(t_format_spec *fs, t_format_result *fr)
 {
 	if (!ft_strncmp(fr->format, "ll", 2))
 		fs->length = LENGTH_LL;
@@ -90,14 +90,14 @@ static void	parse_conversion(t_format_spec *fs, t_format_result *fr)
 	fs->conversion = *fr->format;
 }
 
-void	parse_spec(t_format_spec *fs, t_format_result *fr, va_list *ap)
+void	_parse_spec(t_format_spec *fs, t_format_result *fr, va_list *ap)
 {
 	fr->format++;
-	parse_flags(fs, fr);
-	parse_width(fs, fr, ap);
+	_parse_flags(fs, fr);
+	_parse_width(fs, fr, ap);
 	if (fs->flags & FLAG_MINUS && fs->flags & FLAG_ZERO)
 		fs->flags &= ~FLAG_ZERO;
-	parse_precision(fs, fr, ap);
-	parse_conversion(fs, fr);
+	_parse_precision(fs, fr, ap);
+	_parse_conversion(fs, fr);
 	fr->format++;
 }

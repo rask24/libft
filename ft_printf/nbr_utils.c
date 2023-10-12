@@ -6,20 +6,21 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 18:48:21 by reasuke           #+#    #+#             */
-/*   Updated: 2023/10/02 12:06:07 by reasuke          ###   ########.fr       */
+/*   Updated: 2023/10/12 20:18:33 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_putnbr_base_rec(uintmax_t uim_nb, size_t radix, const char *base)
+static void	_ft_putnbr_base_rec(
+				uintmax_t uim_nb, size_t radix, const char *base)
 {
 	if (uim_nb / radix)
-		ft_putnbr_base_rec(uim_nb / radix, radix, base);
+		_ft_putnbr_base_rec(uim_nb / radix, radix, base);
 	ft_putchar_fd(base[uim_nb % radix], STDOUT_FILENO);
 }
 
-void	ft_putnbr_base(intmax_t nb, const char *base, bool is_signed)
+void	_ft_putnbr_base(intmax_t nb, const char *base, bool is_signed)
 {
 	uintmax_t	uim_nb;
 	size_t		radix;
@@ -31,10 +32,10 @@ void	ft_putnbr_base(intmax_t nb, const char *base, bool is_signed)
 		uim_nb = -nb;
 	else
 		uim_nb = nb;
-	ft_putnbr_base_rec(uim_nb, radix, base);
+	_ft_putnbr_base_rec(uim_nb, radix, base);
 }
 
-int	digits_base(intmax_t nb, size_t radix, bool is_signed)
+int	_digits_base(intmax_t nb, size_t radix, bool is_signed)
 {
 	uintmax_t	uim_nb;
 	int			digits;
@@ -54,7 +55,7 @@ int	digits_base(intmax_t nb, size_t radix, bool is_signed)
 	return (digits);
 }
 
-int	ft_max(int a, int b)
+int	_ft_max(int a, int b)
 {
 	if (a < b)
 		return (b);
