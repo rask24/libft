@@ -12,14 +12,16 @@ SRCS = $(addprefix memory/,\
 			ft_memcpy.c \
 			ft_memmove.c \
 			ft_memset.c \
-		) \
-		$(addprefix output/, \
+		)
+
+SRCS += $(addprefix output/, \
 			ft_putchar_fd.c \
 			ft_putendl_fd.c \
 			ft_putnbr_fd.c \
 			ft_putstr_fd.c \
-		) \
-		$(addprefix type/, \
+		)
+
+SRCS += $(addprefix type/, \
 			ft_isalnum.c \
 			ft_isalpha.c \
 			ft_isascii.c \
@@ -27,8 +29,9 @@ SRCS = $(addprefix memory/,\
 			ft_isprint.c \
 			ft_tolower.c \
 			ft_toupper.c \
-		) \
-		$(addprefix string/, \
+		)
+
+SRCS += $(addprefix string/, \
 			ft_atoi.c \
 			ft_itoa.c \
 			ft_split.c \
@@ -45,8 +48,9 @@ SRCS = $(addprefix memory/,\
 			ft_strrchr.c \
 			ft_strtol.c \
 			ft_strtrim.c \
-		) \
-		$(addprefix list/, \
+		)
+
+SRCS += $(addprefix list/, \
 			ft_lstadd_back.c \
 			ft_lstadd_front.c \
 			ft_lstclear.c \
@@ -56,8 +60,9 @@ SRCS = $(addprefix memory/,\
 			ft_lstmap.c \
 			ft_lstnew.c \
 			ft_lstsize.c \
-		) \
-		$(addprefix ft_printf/, \
+		)
+
+SRCS += $(addprefix ft_printf/, \
 			ft_printf.c \
 			nbr_utils.c \
 			conversion_router.c \
@@ -65,21 +70,31 @@ SRCS = $(addprefix memory/,\
 			print_integer.c \
 			print_string.c \
 		)
+
 OBJS = $(SRCS:.c=.o)
+
+GREEN = \033[0;32m
+RED = \033[0;31m
+RESET = \033[0m
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(AR) $(ARFLAGS) $@ $^
+	@$(AR) $(ARFLAGS) $@ $^
+	@printf "\n"
+	@echo "$(GREEN)libft complied ✔︎$(RESET)"
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	@printf "$(GREEN).$(RESET)"
+	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	$(RM) $(OBJS)
+	@echo "$(RED)delete objs$(RESET)"
+	@$(RM) $(OBJS)
 
 fclean: clean
-	$(RM) $(NAME)
+	@echo "$(RED)delete libft$(RESET)"
+	@$(RM) $(NAME)
 
 re: fclean all
 

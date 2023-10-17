@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 14:20:27 by reasuke           #+#    #+#             */
-/*   Updated: 2023/10/12 20:18:32 by reasuke          ###   ########.fr       */
+/*   Updated: 2023/10/13 10:59:33 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,16 +82,14 @@ typedef struct s_integer_info
 }	t_integer_info;
 
 int		ft_printf(const char *format, ...);
+
 void	_parse_spec(t_format_spec *fs, t_format_result *fr, va_list *ap);
 void	_conversion_router(
 			t_format_spec *fs, t_format_result *fr, va_list *ap);
-
 void	_print_char(char c, t_format_spec *fs, t_format_result *fr);
 void	_print_str(char *str, t_format_spec *fs, t_format_result *fr);
 void	_print_padding(char c, int len);
-
 void	_print_integer(intmax_t nb, t_format_spec *fs, t_format_result *fr);
-
 void	_ft_putnbr_base(intmax_t nb, const char *base, bool is_signed);
 int		_digits_base(intmax_t nb, size_t radix, bool is_signed);
 int		_ft_max(int a, int b);
