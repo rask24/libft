@@ -6,55 +6,55 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:13:31 by reasuke           #+#    #+#             */
-/*   Updated: 2023/10/12 20:16:37 by reasuke          ###   ########.fr       */
+/*   Updated: 2023/10/17 15:42:54 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	_signed_integer_router(
+static void	fpf_signed_integer_router(
 				t_format_spec *fs, t_format_result *fr, va_list *ap)
 {
 	if (fs->length == LENGTH_NONE)
-		_print_integer(va_arg(*ap, int), fs, fr);
+		fpf_print_integer(va_arg(*ap, int), fs, fr);
 	else if (fs->length == LENGTH_L)
-		_print_integer(va_arg(*ap, long), fs, fr);
+		fpf_print_integer(va_arg(*ap, long), fs, fr);
 	else if (fs->length == LENGTH_LL)
-		_print_integer(va_arg(*ap, long long), fs, fr);
+		fpf_print_integer(va_arg(*ap, long long), fs, fr);
 	else if (fs->length == LENGTH_H)
-		_print_integer((short)va_arg(*ap, int), fs, fr);
+		fpf_print_integer((short)va_arg(*ap, int), fs, fr);
 	else if (fs->length == LENGTH_HH)
-		_print_integer((signed char)va_arg(*ap, int), fs, fr);
+		fpf_print_integer((signed char)va_arg(*ap, int), fs, fr);
 	else if (fs->length == LENGTH_J)
-		_print_integer(va_arg(*ap, intmax_t), fs, fr);
+		fpf_print_integer(va_arg(*ap, intmax_t), fs, fr);
 	else if (fs->length == LENGTH_T)
-		_print_integer(va_arg(*ap, ptrdiff_t), fs, fr);
+		fpf_print_integer(va_arg(*ap, ptrdiff_t), fs, fr);
 	else if (fs->length == LENGTH_Z)
-		_print_integer(va_arg(*ap, ssize_t), fs, fr);
+		fpf_print_integer(va_arg(*ap, ssize_t), fs, fr);
 }
 
-static void	_unsigned_integer_router(
+static void	fpf_unsigned_integer_router(
 				t_format_spec *fs, t_format_result *fr, va_list *ap)
 {
 	if (fs->length == LENGTH_NONE)
-		_print_integer(va_arg(*ap, unsigned int), fs, fr);
+		fpf_print_integer(va_arg(*ap, unsigned int), fs, fr);
 	else if (fs->length == LENGTH_L)
-		_print_integer(va_arg(*ap, unsigned long), fs, fr);
+		fpf_print_integer(va_arg(*ap, unsigned long), fs, fr);
 	else if (fs->length == LENGTH_LL)
-		_print_integer(va_arg(*ap, unsigned long long), fs, fr);
+		fpf_print_integer(va_arg(*ap, unsigned long long), fs, fr);
 	else if (fs->length == LENGTH_H)
-		_print_integer((unsigned short)va_arg(*ap, int), fs, fr);
+		fpf_print_integer((unsigned short)va_arg(*ap, int), fs, fr);
 	else if (fs->length == LENGTH_HH)
-		_print_integer((unsigned char)va_arg(*ap, int), fs, fr);
+		fpf_print_integer((unsigned char)va_arg(*ap, int), fs, fr);
 	else if (fs->length == LENGTH_J)
-		_print_integer(va_arg(*ap, uintmax_t), fs, fr);
+		fpf_print_integer(va_arg(*ap, uintmax_t), fs, fr);
 	else if (fs->length == LENGTH_T)
-		_print_integer(va_arg(*ap, ptrdiff_t), fs, fr);
+		fpf_print_integer(va_arg(*ap, ptrdiff_t), fs, fr);
 	else if (fs->length == LENGTH_Z)
-		_print_integer(va_arg(*ap, size_t), fs, fr);
+		fpf_print_integer(va_arg(*ap, size_t), fs, fr);
 }
 
-static void	_n_router(
+static void	fpf_n_router(
 				t_format_spec *fs, t_format_result *fr, va_list *ap)
 {
 	if (fs->length == LENGTH_NONE)
@@ -75,21 +75,21 @@ static void	_n_router(
 		*va_arg(*ap, ssize_t *) = fr->cnt;
 }
 
-void	_conversion_router(
+void	fpf_conversion_router(
 			t_format_spec *fs, t_format_result *fr, va_list *ap)
 {
 	if (fs->conversion == '%')
-		_print_char('%', fs, fr);
+		fpf_print_char('%', fs, fr);
 	else if (fs->conversion == 'c')
-		_print_char(va_arg(*ap, int), fs, fr);
+		fpf_print_char(va_arg(*ap, int), fs, fr);
 	else if (fs->conversion == 's')
-		_print_str(va_arg(*ap, char *), fs, fr);
+		fpf_print_str(va_arg(*ap, char *), fs, fr);
 	else if (fs->conversion == 'd' || fs->conversion == 'i')
-		_signed_integer_router(fs, fr, ap);
+		fpf_signed_integer_router(fs, fr, ap);
 	else if (ft_strchr("uxXo", fs->conversion))
-		_unsigned_integer_router(fs, fr, ap);
+		fpf_unsigned_integer_router(fs, fr, ap);
 	else if (fs->conversion == 'p')
-		_print_integer(va_arg(*ap, uintptr_t), fs, fr);
+		fpf_print_integer(va_arg(*ap, uintptr_t), fs, fr);
 	else if (fs->conversion == 'n')
-		_n_router(fs, fr, ap);
+		fpf_n_router(fs, fr, ap);
 }
