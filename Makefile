@@ -71,6 +71,11 @@ SRCS += $(addprefix ft_printf/, \
 			print_string.c \
 		)
 
+SRCS += $(addprefix get_next_line/, \
+			get_next_line.c \
+			get_next_line_utils.c \
+		)
+
 OBJS = $(SRCS:.c=.o)
 
 GREEN = \033[0;32m
