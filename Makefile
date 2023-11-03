@@ -79,15 +79,16 @@ SRCS += $(addprefix get_next_line/, \
 OBJS = $(SRCS:.c=.o)
 
 GREEN = \033[0;32m
+BLUE = \033[0;34m
 RED = \033[0;31m
 RESET = \033[0m
 
-all: $(NAME)
+all: title $(NAME)
+	@echo "complied [$(GREEN)✔︎$(RESET)]"
 
 $(NAME): $(OBJS)
 	@$(AR) $(ARFLAGS) $@ $^
 	@printf "\n"
-	@echo "$(GREEN)libft complied ✔︎$(RESET)"
 
 %.o: %.c
 	@printf "$(GREEN).$(RESET)"
@@ -103,4 +104,7 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all bonus clean fclean re
+title:
+	@echo "$(BLUE)libft$(RESET)"
+
+.PHONY: all bonus clean fclean re title
