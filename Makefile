@@ -34,6 +34,7 @@ SRCS += $(addprefix type/, \
 SRCS += $(addprefix string/, \
 			ft_atoi.c \
 			ft_itoa.c \
+			ft_free_strs.c \
 			ft_split.c \
 			ft_strchr.c \
 			ft_strdup.c \
