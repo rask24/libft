@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 14:56:56 by reasuke           #+#    #+#             */
-/*   Updated: 2023/10/17 15:29:16 by reasuke          ###   ########.fr       */
+/*   Updated: 2023/11/03 15:21:15 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,6 @@ size_t	gnl_strlen(const char *s);
 char	*gnl_strchr(const char *s, int c);
 size_t	gnl_strlcpy(char *dst, const char *src, size_t dstsize);
 char	*gnl_strndup(const char *s, size_t n);
-char	*gnl_strjoin_with_free(const char *s1, const char *s2, int free_flag);
+char	*gnl_strjoin_with_free(char **s1, char **s2, int free_flag);
 
 #endif
