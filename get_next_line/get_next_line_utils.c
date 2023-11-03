@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 16:03:32 by reasuke           #+#    #+#             */
-/*   Updated: 2023/10/21 23:27:31 by reasuke          ###   ########.fr       */
+/*   Updated: 2023/11/03 15:20:53 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,24 +66,30 @@ char	*gnl_strndup(const char *s, size_t n)
 	return (ret);
 }
 
-char	*gnl_strjoin_with_free(const char *s1, const char *s2, int free_flag)
+char	*gnl_strjoin_with_free(char **s1, char **s2, int free_flag)
 {
 	char	*ret;
 	size_t	s1_len;
 	size_t	s2_len;
 
-	if (!s1 && !s2)
+	if (!*s1 && !*s2)
 		return (NULL);
-	s1_len = gnl_strlen(s1);
-	s2_len = gnl_strlen(s2);
+	s1_len = gnl_strlen(*s1);
+	s2_len = gnl_strlen(*s2);
 	ret = malloc(s1_len + s2_len + 1);
-	if (ret && s1)
-		gnl_strlcpy(ret, s1, s1_len + 1);
-	if (ret && s2)
-		gnl_strlcpy(ret + s1_len, s2, s2_len + 1);
-	if (s1 && free_flag & 0b10)
-		free((char *)s1);
-	if (s2 && free_flag & 0b01)
-		free((char *)s2);
+	if (ret && *s1)
+		gnl_strlcpy(ret, *s1, s1_len + 1);
+	if (ret && *s2)
+		gnl_strlcpy(ret + s1_len, *s2, s2_len + 1);
+	if (*s1 && free_flag & 0b10)
+	{
+		free(*s1);
+		*s1 = NULL;
+	}
+	if (*s2 && free_flag & 0b01)
+	{
+		free(*s2);
+		*s2 = NULL;
+	}
 	return (ret);
 }
