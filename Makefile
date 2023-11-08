@@ -1,5 +1,4 @@
 NAME = libft.a
-CC = gcc
 CFLAGS = -Wall -Wextra -Werror -I .
 ARFLAGS = cr
 
@@ -104,6 +103,9 @@ fclean: clean
 	@$(RM) $(NAME)
 
 re: fclean all
+
+norm:
+	norminette ft_printf get_next_line list memory string type libft.h
 
 title:
 	@echo "$(BLUE)libft$(RESET)"
