@@ -6,7 +6,8 @@ jobs:
     name: norminette
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
         run: |
           python3 -m pip install --upgrade pip setuptools
           python3 -m pip install norminette
