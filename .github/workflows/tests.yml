@@ -23,7 +23,7 @@ jobs:
       - name: Build libft.
         run: make
       - name: Cache Build Results
-        run: actions/cache/save@v3
+        uses: actions/cache/save@v3
         with:
           path: libft.a
   test:
