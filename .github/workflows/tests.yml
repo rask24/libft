@@ -2,9 +2,9 @@ name: Tests
 on:
   push:
 jobs:
-  test:
+  norm:
     name: norminette
-    runs-on: ubuntu-latest
+    runs-on: macos-12
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -14,3 +14,30 @@ jobs:
           python3 -m pip install norminette
       - name: Run Norminette.
         run: make norm
+  build:
+    name: build
+    runs-on: macos-12
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Build libft.
+        run: make
+      - name: Cache Build Results
+        uses: actions/cache/save@v3
+        with:
+          path: libft.a
+          key: libft-${{ github.sha }}
+  test:
+    name: google test
+    needs: build
+    runs-on: macos-12
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Restore Cache
+        uses: actions/cache/restore@v3
+        with:
+          path: libft.a
+          key: libft-${{ github.sha }}
+      - name: Test.
+        run: make test
