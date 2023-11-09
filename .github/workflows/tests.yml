@@ -14,3 +14,7 @@ jobs:
           python3 -m pip install norminette
       - name: Run Norminette.
         run: make norm
+      - name: Build
+        run: make
+      - name: Google Test
+        run: make test
