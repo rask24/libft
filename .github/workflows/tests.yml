@@ -24,7 +24,9 @@ jobs:
         run: |
           brew update
           brew install llvm
-          ln -s "/usr/local/opt/llvm/bin/clang-tidy" "/usr/local/bin/clang-tidy
+          echo 'export PATH="/usr/local/opt/llvm/bin:$PATH"' >> /Users/runner/.bash_profile 
+          export LDFLAGS="-L/usr/local/opt/llvm/lib -L/usr/local/opt/llvm/lib/c++ -Wl,-rpath,/usr/local/opt/llvm/lib/c++"
+          export CPPFLAGS="-I/usr/local/opt/llvm/include"
       - name: Run clang-tidy
         run: make lint
   build:
