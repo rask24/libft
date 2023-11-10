@@ -33,7 +33,9 @@ jobs:
           echo "LDFLAGS=$LDFLAGS"
           echo "CPPFLAGS=$CPPFLAGS"
       - name: Run clang-tidy
-        run: make lint
+        run: |
+          source $HOME/.bash_profile
+          make lint
       - name: Cleanup clang-tidy installation
         run: brew uninstall llvm
   build:
