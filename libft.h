@@ -6,18 +6,19 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 14:54:41 by reasuke           #+#    #+#             */
-/*   Updated: 2023/11/09 15:35:23 by reasuke          ###   ########.fr       */
+/*   Updated: 2023/11/10 22:46:33 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <unistd.h>
-# include <stdlib.h>
+# include <errno.h>
 # include <limits.h>
 # include <stddef.h>
-# include <errno.h>
+# include <stdint.h>
+# include <stdlib.h>
+# include <unistd.h>
 
 typedef struct s_list
 {
