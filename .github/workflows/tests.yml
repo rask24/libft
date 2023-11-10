@@ -27,9 +27,10 @@ jobs:
           echo 'export PATH="/usr/local/opt/llvm/bin:$PATH"' >> /Users/runner/.bash_profile 
           export LDFLAGS="-L/usr/local/opt/llvm/lib -L/usr/local/opt/llvm/lib/c++ -Wl,-rpath,/usr/local/opt/llvm/lib/c++"
           export CPPFLAGS="-I/usr/local/opt/llvm/include"
-          source $HOME/.bash_profile
       - name: Run clang-tidy
-        run: make lint
+        run: |
+          source $HOME/.bash_profile
+          make lint
       - name: Cleanup clang-tidy installation
         run: brew uninstall llvm
   build:
