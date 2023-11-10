@@ -20,15 +20,22 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Install dependencies
+      - name: Install dependencies and set environment variables
         run: |
           brew update
           brew install llvm
           echo 'export PATH="/usr/local/opt/llvm/bin:$PATH"' >> /Users/runner/.bash_profile 
           export LDFLAGS="-L/usr/local/opt/llvm/lib -L/usr/local/opt/llvm/lib/c++ -Wl,-rpath,/usr/local/opt/llvm/lib/c++"
           export CPPFLAGS="-I/usr/local/opt/llvm/include"
+      - name: Print environment variables for debugging
+        run: |
+          echo "PATH=$PATH"
+          echo "LDFLAGS=$LDFLAGS"
+          echo "CPPFLAGS=$CPPFLAGS"
       - name: Run clang-tidy
         run: make lint
+      - name: Cleanup clang-tidy installation
+        run: brew uninstall llvm
   build:
     name: build
     runs-on: macos-12
