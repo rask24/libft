@@ -21,7 +21,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Run clang-tidy
-        uses: make lint
+        run: make lint
   build:
     name: build
     runs-on: macos-12
