@@ -4,7 +4,7 @@ on:
 jobs:
   norm:
     name: norminette
-    runs-on: macos-12
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -12,15 +12,23 @@ jobs:
         run: |
           python3 -m pip install --upgrade pip setuptools
           python3 -m pip install norminette
-      - name: Run Norminette.
+      - name: Run Norminette
         run: make norm
+  lint:
+    name: clang-tidy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Run clang-tidy
+        uses: make lint
   build:
     name: build
     runs-on: macos-12
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: Build libft.
+      - name: Build libft
         run: make
       - name: Cache Build Results
         uses: actions/cache/save@v3
