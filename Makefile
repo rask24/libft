@@ -80,6 +80,13 @@ SRCS	+=	$(addprefix file/, \
 				file_to_line_array.c \
 			)
 
+SRCS	+=	$(addprefix integer/, \
+				ft_max.c \
+				ft_min.c \
+				ft_chmax.c \
+				ft_chmin.c \
+			)
+
 OBJS = $(SRCS:.c=.o)
 
 GTESTDIR		=	gtest
