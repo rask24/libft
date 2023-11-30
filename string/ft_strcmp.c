@@ -1,23 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_chmax.c                                         :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/30 19:53:14 by reasuke           #+#    #+#             */
-/*   Updated: 2023/11/30 20:28:06 by reasuke          ###   ########.fr       */
+/*   Created: 2023/08/14 19:24:43 by reasuke           #+#    #+#             */
+/*   Updated: 2023/11/30 20:20:13 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-bool	ft_chmax(int *a, int b)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	if (*a < b)
+	while (*s1 && *s1 == *s2)
 	{
-		*a = b;
-		return (true);
+		s1++;
+		s2++;
 	}
-	return (false);
+	return ((unsigned int)*s1 - (unsigned int)*s2);
 }
