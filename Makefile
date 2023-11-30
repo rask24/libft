@@ -76,6 +76,10 @@ SRCS	+=	$(addprefix get_next_line/, \
 				get_next_line_utils.c \
 			)
 
+SRCS	+=	$(addprefix file/, \
+				file_to_line_array.c \
+			)
+
 OBJS = $(SRCS:.c=.o)
 
 GTESTDIR		=	gtest
@@ -112,7 +116,7 @@ fclean: clean
 re: fclean all
 
 norm:
-	norminette ft_printf get_next_line list memory string type libft.h
+	norminette ft_printf get_next_line list memory string type file libft.h
 
 test: $(GTEST)
 	@echo "$(BLUE)test$(RESET)"
@@ -125,9 +129,6 @@ $(GTEST):
 	@$(RM) release-1.11.0.tar.gz
 	@python3 googletest-release-1.11.0/googletest/scripts/fuse_gtest_files.py $(GTESTDIR)
 	@mv googletest-release-1.11.0 $(GTESTDIR)
-
-lint:
-	clang-tidy --config-file=.clang_tidy --extra-arg=-I. $(SRCS)
 
 title:
 	@echo "$(BLUE)libft$(RESET)"

@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 14:54:41 by reasuke           #+#    #+#             */
-/*   Updated: 2023/11/10 22:46:33 by reasuke          ###   ########.fr       */
+/*   Updated: 2023/11/30 19:48:26 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,38 @@
 # define LIBFT_H
 
 # include <errno.h>
+# include <fcntl.h>
 # include <limits.h>
+# include <stdbool.h>
 # include <stddef.h>
 # include <stdint.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+# define OK    0
+# define ERROR -1
+
+# define LOWER_BASE "0123456789abcdefghijklmnopqrstuvwxyz"
+# define UPPER_BASE "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+# define MAX_OVERFLOW 0b01
+# define MIN_OVERFLOW 0b10
 
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }	t_list;
+
+typedef struct s_conv_spec
+{
+	const char	*str;
+	char		**endptr;
+	long		nb;
+	int			base;
+	int			sign;
+	int			digit_cnt;
+	int			overflow;
+}	t_conv_spec;
 
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
@@ -80,5 +101,7 @@ int		ft_lstsize(t_list *lst);
 int		ft_printf(const char *format, ...);
 
 char	*get_next_line(int fd);
+
+char	**file_to_line_array(char *file_name);
 
 #endif

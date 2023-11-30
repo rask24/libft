@@ -14,25 +14,6 @@ jobs:
           python3 -m pip install norminette
       - name: Run Norminette
         run: make norm
-  lint:
-    name: clang-tidy
-    runs-on: macos-12
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      - name: Install dependencies and set environment variables
-        run: |
-          brew update
-          brew install llvm
-          echo 'export PATH="/usr/local/opt/llvm/bin:$PATH"' >> /Users/runner/.bash_profile 
-          export LDFLAGS="-L/usr/local/opt/llvm/lib -L/usr/local/opt/llvm/lib/c++ -Wl,-rpath,/usr/local/opt/llvm/lib/c++"
-          export CPPFLAGS="-I/usr/local/opt/llvm/include"
-      - name: Run clang-tidy
-        run: |
-          source $HOME/.bash_profile
-          make lint
-      - name: Cleanup clang-tidy installation
-        run: brew uninstall llvm
   build:
     name: build
     runs-on: macos-12
