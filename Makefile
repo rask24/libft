@@ -130,9 +130,6 @@ $(GTEST):
 	@python3 googletest-release-1.11.0/googletest/scripts/fuse_gtest_files.py $(GTESTDIR)
 	@mv googletest-release-1.11.0 $(GTESTDIR)
 
-lint:
-	clang-tidy --config-file=.clang_tidy --extra-arg=-I. $(SRCS)
-
 title:
 	@echo "$(BLUE)libft$(RESET)"
 
