@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 14:54:41 by reasuke           #+#    #+#             */
-/*   Updated: 2023/11/30 19:39:49 by reasuke          ###   ########.fr       */
+/*   Updated: 2023/11/30 19:48:26 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
-typedef struct s_conv_spec{
+typedef struct s_conv_spec
+{
 	const char	*str;
 	char		**endptr;
 	long		nb;
