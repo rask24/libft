@@ -116,7 +116,7 @@ fclean: clean
 re: fclean all
 
 norm:
-	norminette ft_printf get_next_line list memory string type libft.h
+	norminette ft_printf get_next_line list memory string type file libft.h
 
 test: $(GTEST)
 	@echo "$(BLUE)test$(RESET)"

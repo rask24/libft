@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 14:54:41 by reasuke           #+#    #+#             */
-/*   Updated: 2023/11/30 19:29:40 by reasuke          ###   ########.fr       */
+/*   Updated: 2023/11/30 19:39:49 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,26 @@
 # define OK    0
 # define ERROR -1
 
+# define LOWER_BASE "0123456789abcdefghijklmnopqrstuvwxyz"
+# define UPPER_BASE "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+# define MAX_OVERFLOW 0b01
+# define MIN_OVERFLOW 0b10
+
 typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
 }	t_list;
+
+typedef struct s_conv_spec{
+	const char	*str;
+	char		**endptr;
+	long		nb;
+	int			base;
+	int			sign;
+	int			digit_cnt;
+	int			overflow;
+}	t_conv_spec;
 
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
