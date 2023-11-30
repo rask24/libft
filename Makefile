@@ -85,6 +85,7 @@ SRCS	+=	$(addprefix integer/, \
 				ft_min.c \
 				ft_chmax.c \
 				ft_chmin.c \
+				ft_swap.c \
 			)
 
 OBJS = $(SRCS:.c=.o)

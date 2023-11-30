@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 14:54:41 by reasuke           #+#    #+#             */
-/*   Updated: 2023/11/30 20:27:58 by reasuke          ###   ########.fr       */
+/*   Updated: 2023/11/30 20:30:59 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,5 +109,6 @@ int		ft_max(int a, int b);
 int		ft_min(int a, int b);
 bool	ft_chmax(int *a, int b);
 bool	ft_chmin(int *a, int b);
+void	ft_swap(int *a, int *b);
 
 #endif
