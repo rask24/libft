@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 14:54:41 by reasuke           #+#    #+#             */
-/*   Updated: 2023/11/10 22:46:33 by reasuke          ###   ########.fr       */
+/*   Updated: 2023/11/30 19:29:40 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,16 @@
 # define LIBFT_H
 
 # include <errno.h>
+# include <fcntl.h>
 # include <limits.h>
+# include <stdbool.h>
 # include <stddef.h>
 # include <stdint.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+# define OK    0
+# define ERROR -1
 
 typedef struct s_list
 {
@@ -80,5 +85,7 @@ int		ft_lstsize(t_list *lst);
 int		ft_printf(const char *format, ...);
 
 char	*get_next_line(int fd);
+
+char	**file_to_line_array(char *file_name);
 
 #endif

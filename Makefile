@@ -76,6 +76,10 @@ SRCS	+=	$(addprefix get_next_line/, \
 				get_next_line_utils.c \
 			)
 
+SRCS	+=	$(addprefix file/, \
+				file_to_line_array.c \
+			)
+
 OBJS = $(SRCS:.c=.o)
 
 GTESTDIR		=	gtest
