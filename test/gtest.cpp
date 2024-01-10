@@ -34,3 +34,13 @@ TEST(strncmp_test, libft_test) {
 		CHECK_EQ(strncmp, s1.c_str(), s2.c_str(), i);
 	}
 }
+
+TEST(strcmp_test, libft_test) {
+	std::string s1("Hello World");
+	std::string s2("Hello:World");
+
+	CHECK_EQ(strcmp, s1.c_str(), s1.c_str());
+	CHECK_EQ(strcmp, s2.c_str(), s2.c_str());
+	CHECK_EQ(strcmp, s1.c_str(), s2.c_str());
+	CHECK_EQ(strcmp, s2.c_str(), s1.c_str());
+}
