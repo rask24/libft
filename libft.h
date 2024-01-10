@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 14:54:41 by reasuke           #+#    #+#             */
-/*   Updated: 2023/11/30 20:30:59 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/01/10 13:20:32 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 char	*ft_strrchr(const char *s, int c);
 long	ft_strtol(const char *str, char **endptr, int base);
+char	*ft_strstr(const char *haystack, const char *needle);
 char	*ft_strtrim(const char *s1, const char *set);
 char	*ft_substr(const char *s, unsigned int start, size_t len);
 
