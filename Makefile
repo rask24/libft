@@ -47,6 +47,7 @@ SRC	+=	$(addprefix string/, \
 			ft_strncmp.c \
 			ft_strnstr.c \
 			ft_strrchr.c \
+			ft_strstr.c \
 			ft_strtol.c \
 			ft_strtrim.c \
 		)

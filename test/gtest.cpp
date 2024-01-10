@@ -44,3 +44,17 @@ TEST(strcmp_test, libft_test) {
 	CHECK_EQ(strcmp, s1.c_str(), s2.c_str());
 	CHECK_EQ(strcmp, s2.c_str(), s1.c_str());
 }
+
+TEST(strstr_test, libft_test) {
+	std::string s1("abcdefg");
+	std::string s2("def");
+	std::string s3("dek");
+	std::string s4("");
+
+	CHECK_EQ(strstr, s1.c_str(), s2.c_str());
+	CHECK_EQ(strstr, s1.c_str(), s3.c_str());
+	CHECK_EQ(strstr, s1.c_str(), s4.c_str());
+	CHECK_EQ(strstr, s1.c_str(), s1.c_str());
+	CHECK_EQ(strstr, s4.c_str(), s4.c_str());
+	CHECK_EQ(strstr, s2.c_str(), s1.c_str());
+}
