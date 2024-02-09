@@ -98,3 +98,9 @@ TEST(ft_lst_before, test) {
   EXPECT_EQ(ft_lst_before(stack, lst3)->content, element2);
   EXPECT_EQ(ft_lst_before(stack, lst4)->content, element3);
 }
+
+TEST(ft_abs, test) {
+  EXPECT_EQ(ft_abs(42), 42);
+  EXPECT_EQ(ft_abs(0), 0);
+  EXPECT_EQ(ft_abs(-42), 42);
+}

@@ -84,6 +84,7 @@ SRC	+=	$(addprefix file/, \
 		)
 
 SRC	+=	$(addprefix integer/, \
+			ft_abs.c \
 			ft_max.c \
 			ft_min.c \
 			ft_chmax.c \

@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 14:54:41 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/09 13:15:24 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/09 13:20:12 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ char				*get_next_line(int fd);
 
 char				**file_to_line_array(char *file_name);
 
+int					ft_abs(int a);
 int					ft_max(int a, int b);
 int					ft_min(int a, int b);
 bool				ft_chmax(int *a, int b);
