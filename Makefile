@@ -55,6 +55,7 @@ SRC	+=	$(addprefix string/, \
 SRC	+=	$(addprefix list/, \
 			ft_lstadd_back.c \
 			ft_lstadd_front.c \
+			ft_lstbefore.c \
 			ft_lstclear.c \
 			ft_lstdelone.c \
 			ft_lstiter.c \
