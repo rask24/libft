@@ -1,5 +1,5 @@
 NAME			= libft.a
-CFLAGS			= -Wall -Wextra -Werror -I . -O3
+CFLAGS			= -Wall -Wextra -Werror -I .
 ARFLAGS			= crs
 
 BUILD_DIR		= build
