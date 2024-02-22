@@ -1,5 +1,6 @@
 NAME			= libft.a
-CFLAGS			= -Wall -Wextra -Werror -I .
+CFLAGS			= -Wall -Wextra -Werror
+INCLUDE			= -I .
 ARFLAGS			= crs
 
 BUILD_DIR		= build
@@ -66,16 +67,6 @@ re: fclean all
 norm:
 	norminette ft_printf get_next_line list memory string type file output integer libft.h
 
-test: $(GTEST)
-	@echo "$(BLUE)test$(RESET)"
-	@$(TEST_COMPILE)
-	@./tester # --gtest_filter=Vector.other
-
-$(GTEST):
-	@curl -OL https://github.com/google/googletest/archive/refs/tags/release-1.11.0.tar.gz
-	@tar -xvzf release-1.11.0.tar.gz googletest-release-1.11.0
-	@$(RM) release-1.11.0.tar.gz
-	@python3 googletest-release-1.11.0/googletest/scripts/fuse_gtest_files.py $(GTESTDIR)
-	@mv googletest-release-1.11.0 $(GTESTDIR)
+include unit_test.mk
 
 .PHONY: all clean fclean re norm test title
