@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 14:20:27 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/22 23:42:41 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/22 23:46:53 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,14 +66,14 @@ typedef struct s_format_result
 	int			cnt;
 }				t_format_result;
 
-typedef struct s_format_spec
+typedef struct s_format_info
 {
 	int			flags;
 	int			width;
 	int			precision;
 	int			length;
 	char		conversion;
-}				t_format_spec;
+}				t_format_info;
 
 typedef struct s_integer_info
 {
@@ -88,15 +88,15 @@ typedef struct s_integer_info
 
 int				ft_printf(const char *format, ...);
 
-void			fpf_parse_spec(t_format_spec *fs, t_format_result *fr,
+void			fpf_parse_spec(t_format_info *fi, t_format_result *fr,
 					va_list *ap);
-void			fpf_conversion_router(t_format_spec *fs, t_format_result *fr,
+void			fpf_conversion_router(t_format_info *fi, t_format_result *fr,
 					va_list *ap);
-void			fpf_print_char(char c, t_format_spec *fs, t_format_result *fr);
-void			fpf_print_str(char *str, t_format_spec *fs,
+void			fpf_print_char(char c, t_format_info *fi, t_format_result *fr);
+void			fpf_print_str(char *str, t_format_info *fi,
 					t_format_result *fr);
 void			fpf_print_padding(char c, int len);
-void			fpf_print_integer(intmax_t nb, t_format_spec *fs,
+void			fpf_print_integer(intmax_t nb, t_format_info *fi,
 					t_format_result *fr);
 void			fpf_putnbr_base(intmax_t nb, const char *base, bool is_signed);
 int				fpf_digits_base(intmax_t nb, size_t radix, bool is_signed);

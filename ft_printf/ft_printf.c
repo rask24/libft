@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 16:59:33 by reasuke           #+#    #+#             */
-/*   Updated: 2023/10/17 15:42:54 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/22 23:47:04 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_printf(const char *format, ...)
 {
 	va_list			ap;
 	t_format_result	fr;
-	t_format_spec	fs;
+	t_format_info	fi;
 
 	fr = (t_format_result){format, 0};
 	va_start(ap, format);
@@ -24,10 +24,10 @@ int	ft_printf(const char *format, ...)
 	{
 		if (*fr.format == '%')
 		{
-			fs = (t_format_spec){
-				FLAG_NONE, WIDTH_NONE, PREC_NONE, LENGTH_NONE, '\0'};
-			fpf_parse_spec(&fs, &fr, &ap);
-			fpf_conversion_router(&fs, &fr, &ap);
+			fi = (t_format_info){FLAG_NONE, WIDTH_NONE, PREC_NONE, LENGTH_NONE,
+				'\0'};
+			fpf_parse_spec(&fi, &fr, &ap);
+			fpf_conversion_router(&fi, &fr, &ap);
 		}
 		else
 		{

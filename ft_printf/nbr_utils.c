@@ -6,14 +6,14 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 18:48:21 by reasuke           #+#    #+#             */
-/*   Updated: 2023/10/17 15:42:54 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/22 23:48:44 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	fpf_putnbr_base_rec(
-				uintmax_t uim_nb, size_t radix, const char *base)
+static void	fpf_putnbr_base_rec(uintmax_t uim_nb, size_t radix,
+		const char *base)
 {
 	if (uim_nb / radix)
 		fpf_putnbr_base_rec(uim_nb / radix, radix, base);
