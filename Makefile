@@ -14,15 +14,7 @@ SRC				=  $(addprefix memory/, ft_bzero.c ft_calloc.c ft_memccpy.c ft_memchr.c f
 					$(addprefix get_next_line/, get_next_line.c get_next_line_utils.c) \
 					$(addprefix file/, file_to_lines.c) \
 					$(addprefix integer/, ft_abs.c ft_max.c ft_min.c ft_chmax.c ft_chmin.c ft_swap.c)
-
 OBJ				= $(patsubst %.c, $(BUILD_DIR)/%.o, $(SRC))
-
-GTESTDIR		=	gtest
-GTEST			=	$(GTESTDIR)/gtest $(GTESTDIR)/googletest-release-1.11.0
-TESTDIR			=	test
-TEST_COMPILE	=	clang++ -std=c++11 \
-					$(TESTDIR)/gtest.cpp $(GTESTDIR)/googletest-release-1.11.0/googletest/src/gtest_main.cc \
-					$(GTESTDIR)/gtest/gtest-all.cc -I $(GTESTDIR) -I . -L . -l ft -lpthread -o tester
 
 # colors
 RESET			= \033[0m
@@ -36,15 +28,18 @@ MAGENTA			= \033[0;95m
 CYAN			= \033[0;96m
 WHITE			= \033[0;97m
 
+.PHONY: all
 all: $(NAME)
 
 $(NAME): $(SRC)
 	@make _main
 
+.PHONY: _main
 _main:
 	@echo "$(BLUE)[libft]\t\t$(NAME)$(RESET)\t\t$(WHITE)compling...$(RESET)"
 	@make _build
 
+.PHONY: _build
 _build: $(OBJ)
 	@$(AR) $(ARFLAGS) $(NAME) $^
 	@echo "\n$(BLUE)[libft]\t\t$(NAME)$(RESET)\t\t$(GREEN)compiled ✔$(RESET)"
@@ -54,19 +49,21 @@ $(BUILD_DIR)/%.o: %.c
 	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 	@printf "$(GREEN)─$(RESET)"
 
+.PHONY: clean
 clean:
 	@$(RM) $(OBJ)
 	@echo "$(BLUE)[libft]\t\tobject files$(RESET)\t$(GREEN)deleted ✔$(RESET)"
 
+.PHONY: fclean
 fclean: clean
 	@$(RM) $(NAME)
 	@echo "$(BLUE)[libft]\t\t$(NAME)$(RESET)\t\t$(GREEN)deleted ✔$(RESET)"
 
+.PHONY: re
 re: fclean all
 
+.PHONY: norm
 norm:
 	norminette ft_printf get_next_line list memory string type file output integer libft.h
 
 include unit_test.mk
-
-.PHONY: all clean fclean re norm test title
