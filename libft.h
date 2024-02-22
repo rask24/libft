@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 14:54:41 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/09 13:20:12 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/22 13:40:30 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,7 +107,7 @@ int					ft_printf(const char *format, ...);
 
 char				*get_next_line(int fd);
 
-char				**file_to_line_array(char *file_name);
+char				**file_to_lines(char *file_name);
 
 int					ft_abs(int a);
 int					ft_max(int a, int b);
