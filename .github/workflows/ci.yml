@@ -24,7 +24,6 @@ jobs:
         run: make
   test:
     name: google test
-    needs: build
     runs-on: macos-14
     steps:
       - name: Checkout repository
