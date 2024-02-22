@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_spec.c                                       :+:      :+:    :+:   */
+/*   parse_format_info.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 14:17:21 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/22 23:59:45 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/23 00:23:43 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	fpf_parse_flags(t_format_info *fi, t_format_result *fr)
+static void	_parse_flags(t_format_info *fi, t_format_result *fr)
 {
 	char		*ptr;
 	ptrdiff_t	index;
@@ -28,7 +28,7 @@ static void	fpf_parse_flags(t_format_info *fi, t_format_result *fr)
 	}
 }
 
-static void	fpf_parse_width(t_format_info *fi, t_format_result *fr, va_list *ap)
+static void	_parse_width(t_format_info *fi, t_format_result *fr, va_list *ap)
 {
 	if (*fr->format == '*')
 	{
@@ -48,7 +48,7 @@ static void	fpf_parse_width(t_format_info *fi, t_format_result *fr, va_list *ap)
 	}
 }
 
-static void	fpf_parse_precision(t_format_info *fi, t_format_result *fr,
+static void	_parse_precision(t_format_info *fi, t_format_result *fr,
 		va_list *ap)
 {
 	if (*fr->format == '.')
@@ -70,7 +70,7 @@ static void	fpf_parse_precision(t_format_info *fi, t_format_result *fr,
 	}
 }
 
-static void	fpf_parse_conversion(t_format_info *fi, t_format_result *fr)
+static void	_parse_conversion(t_format_info *fi, t_format_result *fr)
 {
 	if (!ft_strncmp(fr->format, "ll", 2))
 		fi->length = LENGTH_LL;
@@ -94,11 +94,11 @@ static void	fpf_parse_conversion(t_format_info *fi, t_format_result *fr)
 void	fpf_parse_format_info(t_format_info *fi, t_format_result *fr, va_list *ap)
 {
 	fr->format++;
-	fpf_parse_flags(fi, fr);
-	fpf_parse_width(fi, fr, ap);
+	_parse_flags(fi, fr);
+	_parse_width(fi, fr, ap);
 	if (fi->flags & FLAG_MINUS && fi->flags & FLAG_ZERO)
 		fi->flags &= ~FLAG_ZERO;
-	fpf_parse_precision(fi, fr, ap);
-	fpf_parse_conversion(fi, fr);
+	_parse_precision(fi, fr, ap);
+	_parse_conversion(fi, fr);
 	fr->format++;
 }

@@ -6,13 +6,13 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 18:12:55 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/22 23:48:56 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/23 00:21:33 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	fpf_init_width(t_integer_info *info, intmax_t nb, t_format_info *fi)
+static void	_init_width(t_integer_info *info, intmax_t nb, t_format_info *fi)
 {
 	info->prefix_width = ft_strlen(info->prefix);
 	if (nb == 0 && fi->precision == 0)
@@ -34,8 +34,7 @@ static void	fpf_init_width(t_integer_info *info, intmax_t nb, t_format_info *fi)
 	}
 }
 
-static void	fpf_init_prefix(t_integer_info *info, intmax_t nb,
-		t_format_info *fi)
+static void	_init_prefix(t_integer_info *info, intmax_t nb, t_format_info *fi)
 {
 	info->prefix = "";
 	if (info->is_signed && nb < 0)
@@ -52,7 +51,7 @@ static void	fpf_init_prefix(t_integer_info *info, intmax_t nb,
 		info->prefix = LOEWR_HEX_PREFIX;
 }
 
-static void	fpf_init_integer_info(t_integer_info *info, intmax_t nb,
+static void	_init_integer_info(t_integer_info *info, intmax_t nb,
 		t_format_info *fi)
 {
 	info->is_signed = (fi->conversion == 'd' || fi->conversion == 'i');
@@ -64,8 +63,8 @@ static void	fpf_init_integer_info(t_integer_info *info, intmax_t nb,
 		info->base = OCT_BASE;
 	else
 		info->base = DEC_BASE;
-	fpf_init_prefix(info, nb, fi);
-	fpf_init_width(info, nb, fi);
+	_init_prefix(info, nb, fi);
+	_init_width(info, nb, fi);
 	if (fi->flags & FLAG_HASH && !info->is_signed && fi->conversion == 'o'
 		&& !info->zero_width && (nb || fi->precision == 0))
 	{
@@ -80,7 +79,7 @@ void	fpf_print_integer(intmax_t nb, t_format_info *fi, t_format_result *fr)
 {
 	t_integer_info	info;
 
-	fpf_init_integer_info(&info, nb, fi);
+	_init_integer_info(&info, nb, fi);
 	if (!(fi->flags & FLAG_MINUS) && info.space_width)
 		fpf_print_padding(' ', info.space_width);
 	if (*info.prefix)
