@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 14:17:21 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/22 23:47:18 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/22 23:59:45 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ static void	fpf_parse_conversion(t_format_info *fi, t_format_result *fr)
 	fi->conversion = *fr->format;
 }
 
-void	fpf_parse_spec(t_format_info *fi, t_format_result *fr, va_list *ap)
+void	fpf_parse_format_info(t_format_info *fi, t_format_result *fr, va_list *ap)
 {
 	fr->format++;
 	fpf_parse_flags(fi, fr);

@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 14:20:27 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/22 23:46:53 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/22 23:59:45 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ typedef struct s_integer_info
 
 int				ft_printf(const char *format, ...);
 
-void			fpf_parse_spec(t_format_info *fi, t_format_result *fr,
+void			fpf_parse_format_info(t_format_info *fi, t_format_result *fr,
 					va_list *ap);
 void			fpf_conversion_router(t_format_info *fi, t_format_result *fr,
 					va_list *ap);
