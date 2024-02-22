@@ -1,4 +1,7 @@
+// Copyright 2024, reasuke.
+
 #include "gtest/gtest.h"
+#include "unit_test_utils.hpp"
 
 extern "C" {
 #include "libft.h"

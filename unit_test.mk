@@ -11,7 +11,10 @@ GTEST_DIR		= test/unit/gtest
 TEST_BUILD_DIR	= test/build
 
 # test files
-TEST_SRC		= $(TEST_DIR)/gtest.cpp \
+TEST_SRC		= $(TEST_DIR)/test_strcmp.cpp \
+					$(TEST_DIR)/test_strstr.cpp \
+					$(TEST_DIR)/test_integer.cpp \
+					$(TEST_DIR)/test_lst_before.cpp \
 					$(TEST_DIR)/test_file_to_line_array.cpp
 TEST_OBJ		= $(patsubst $(TEST_DIR)/%.cpp, $(TEST_BUILD_DIR)/%.o, $(TEST_SRC))
 GTEST_SRC		= $(GTEST_DIR)/gtest_main.cc $(GTEST_DIR)/gtest-all.cc
