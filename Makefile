@@ -51,7 +51,7 @@ _build: $(OBJ)
 
 $(BUILD_DIR)/%.o: %.c
 	@mkdir -p $(@D)
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 	@printf "$(GREEN)─$(RESET)"
 
 clean:
