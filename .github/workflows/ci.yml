@@ -14,14 +14,6 @@ jobs:
           python3 -m pip install norminette
       - name: Run Norminette
         run: make norm
-  build:
-    name: build
-    runs-on: macos-14
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-      - name: Build libft
-        run: make
   test:
     name: google test
     runs-on: macos-14
