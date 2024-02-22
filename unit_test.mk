@@ -15,7 +15,7 @@ TEST_SRC		= $(TEST_DIR)/test_strcmp.cpp \
 					$(TEST_DIR)/test_strstr.cpp \
 					$(TEST_DIR)/test_integer.cpp \
 					$(TEST_DIR)/test_lst_before.cpp \
-					$(TEST_DIR)/test_file_to_line_array.cpp
+					$(TEST_DIR)/test_file_to_lines.cpp
 TEST_OBJ		= $(patsubst $(TEST_DIR)/%.cpp, $(TEST_BUILD_DIR)/%.o, $(TEST_SRC))
 GTEST_SRC		= $(GTEST_DIR)/gtest_main.cc $(GTEST_DIR)/gtest-all.cc
 GTEST_OBJ		= $(patsubst $(GTEST_DIR)/%.cc, $(TEST_BUILD_DIR)/%.o, $(GTEST_SRC))

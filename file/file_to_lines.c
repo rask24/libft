@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file_to_line_array.c                               :+:      :+:    :+:   */
+/*   file_to_lines.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 18:22:21 by reasuke           #+#    #+#             */
-/*   Updated: 2023/11/30 19:31:26 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/22 13:41:12 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ static int	_fill_line_array(char **line_array, int num_lines, char *file_path)
 	return (OK);
 }
 
-char	**file_to_line_array(char *file_path)
+char	**file_to_lines(char *file_path)
 {
 	int		num_lines;
 	char	**line_array;
