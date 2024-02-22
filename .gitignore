@@ -64,7 +64,10 @@ libft-tester-tokyo
 
 # google tests
 gtest
-tester
+unit_tester
 
 # vscode settings
 .vscode/
+
+# build directory
+build/
