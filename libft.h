@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 14:54:41 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/22 13:40:30 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/24 00:07:06 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <errno.h>
 # include <fcntl.h>
 # include <limits.h>
+# include <stdarg.h>
 # include <stdbool.h>
 # include <stddef.h>
 # include <stdint.h>
@@ -104,6 +105,9 @@ t_list				*ft_lstnew(void *content);
 int					ft_lstsize(t_list *lst);
 
 int					ft_printf(const char *format, ...);
+int					ft_vprintf(const char *format, va_list ap);
+int					ft_dprintf(int fd, const char *format, ...);
+int					ft_vdprintf(int fd, const char *format, va_list ap);
 
 char				*get_next_line(int fd);
 
