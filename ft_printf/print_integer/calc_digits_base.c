@@ -6,13 +6,13 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 18:48:21 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/23 22:21:01 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/23 22:46:12 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	fpf_digits_base(intmax_t nb, size_t radix, bool is_signed)
+int	fp_digits_base(intmax_t nb, size_t radix, bool is_signed)
 {
 	uintmax_t	uim_nb;
 	int			digits;

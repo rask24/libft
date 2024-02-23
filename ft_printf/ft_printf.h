@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 14:20:27 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/23 22:39:31 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/23 22:46:12 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,21 +88,21 @@ typedef struct s_integer_info
 
 int				ft_printf(const char *format, ...);
 
-void			fpf_configure_format_info( t_format_info *fi,
+void			fp_configure_format_info( t_format_info *fi,
 					t_format_result *fr, va_list *ap);
-void			fpf_print_by_format(t_format_info *fi, t_format_result *fr,
+void			fp_print_by_format(t_format_info *fi, t_format_result *fr,
 					va_list *ap);
 
-void			fpf_print_char(char c, t_format_info *fi, t_format_result *fr);
-void			fpf_print_str(char *str, t_format_info *fi,
+void			fp_print_char(char c, t_format_info *fi, t_format_result *fr);
+void			fp_print_str(char *str, t_format_info *fi,
 					t_format_result *fr);
-void			fpf_print_padding(char c, int len);
+void			fp_print_padding(char c, int len);
 
 void			fpf_print_integer(intmax_t nb, t_format_info *fi,
 					t_format_result *fr);
-void			fpf_configure_integer_info(t_integer_info *info, intmax_t nb,
+void			fp_configure_integer_info(t_integer_info *info, intmax_t nb,
 					t_format_info *fi);
-void			fpf_putnbr_base(intmax_t nb, const char *base, bool is_signed);
-int				fpf_digits_base(intmax_t nb, size_t radix, bool is_signed);
+void			fp_putnbr_base(intmax_t nb, const char *base, bool is_signed);
+int				fp_digits_base(intmax_t nb, size_t radix, bool is_signed);
 
 #endif

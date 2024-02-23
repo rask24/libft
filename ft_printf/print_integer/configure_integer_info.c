@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 18:12:55 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/23 22:39:31 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/23 22:46:12 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void	_set_width(t_integer_info *info, intmax_t nb, t_format_info *fi)
 	if (nb == 0 && fi->prec == 0)
 		info->digits = 0;
 	else
-		info->digits = fpf_digits_base(nb, ft_strlen(info->base),
+		info->digits = fp_digits_base(nb, ft_strlen(info->base),
 				info->is_signed);
 	if (fi->width && fi->prec == PREC_NONE && fi->flags & FLAG_ZERO)
 	{
@@ -76,7 +76,7 @@ static void	_adjust_for_oct_prefix(t_integer_info *info, intmax_t nb,
 	}
 }
 
-void	fpf_configure_integer_info(t_integer_info *info, intmax_t nb,
+void	fp_configure_integer_info(t_integer_info *info, intmax_t nb,
 			t_format_info *fi)
 {
 	info->is_signed = (fi->conv == 'd' || fi->conv == 'i');

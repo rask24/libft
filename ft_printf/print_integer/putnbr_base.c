@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 18:48:21 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/23 22:23:01 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/23 22:46:12 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	_putnbr_base_rec(uintmax_t uim_nb, size_t radix, const char *base)
 	ft_putchar_fd(base[uim_nb % radix], STDOUT_FILENO);
 }
 
-void	fpf_putnbr_base(intmax_t nb, const char *base, bool is_signed)
+void	fp_putnbr_base(intmax_t nb, const char *base, bool is_signed)
 {
 	uintmax_t	uim_nb;
 	size_t		radix;
@@ -34,7 +34,7 @@ void	fpf_putnbr_base(intmax_t nb, const char *base, bool is_signed)
 	_putnbr_base_rec(uim_nb, radix, base);
 }
 
-int	fpf_digits_base(intmax_t nb, size_t radix, bool is_signed)
+int	fp_digits_base(intmax_t nb, size_t radix, bool is_signed)
 {
 	uintmax_t	uim_nb;
 	int			digits;
