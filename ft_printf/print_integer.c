@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 18:12:55 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/23 21:59:03 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/23 22:00:31 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ static void	_set_width(t_integer_info *info, intmax_t nb, t_format_info *fi)
 	if (fi->width && fi->precision == PREC_NONE && fi->flags & FLAG_ZERO)
 	{
 		info->space_width = 0;
-		info->zero_width = fpf_max(fi->width - info->digits
+		info->zero_width = ft_max(fi->width - info->digits
 				- info->prefix_width, 0);
 	}
 	else
 	{
-		info->space_width = fpf_max(fi->width - fpf_max(fi->precision,
+		info->space_width = ft_max(fi->width - ft_max(fi->precision,
 					info->digits) - info->prefix_width, 0);
-		info->zero_width = fpf_max(fi->precision - info->digits, 0);
+		info->zero_width = ft_max(fi->precision - info->digits, 0);
 	}
 }
 
