@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:13:31 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/23 22:45:44 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/23 23:37:52 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,9 @@ static void	_print_string_by_format(t_format_info *fi,
 }
 
 void	fp_print_by_format(t_format_info *fi, t_format_result *fr,
-			va_list *ap)
+			va_list *ap, int fd)
 {
+	(void)fd;
 	if (ft_strchr("%cs", fi->conv))
 		_print_string_by_format(fi, fr, ap);
 	else if (fi->conv == 'd' || fi->conv == 'i')

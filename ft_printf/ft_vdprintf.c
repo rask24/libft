@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 16:59:33 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/23 23:20:37 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/23 23:37:12 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	ft_vdprintf(int fd, const char *format, va_list ap)
 			fi = (t_format_info){FLAG_NONE, WIDTH_NONE, PREC_NONE, LENGTH_NONE,
 				'\0'};
 			fp_configure_format_info(&fi, &fr, &ap);
-			fp_print_by_format(&fi, &fr, &ap);
+			fp_print_by_format(&fi, &fr, &ap, fd);
 		}
 		else
 		{
