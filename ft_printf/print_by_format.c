@@ -6,54 +6,55 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:13:31 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/23 23:49:01 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/23 23:58:27 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 static void	_print_signed_integer_by_format(t_format_info *fi,
-				t_format_result *fr, va_list *ap)
+				t_format_result *fr, va_list *ap, int fd)
 {
 	if (fi->length == LENGTH_NONE)
-		fpf_print_integer(va_arg(*ap, int), fi, fr);
+		fpf_print_integer(va_arg(*ap, int), fi, fr, fd);
 	else if (fi->length == LENGTH_L)
-		fpf_print_integer(va_arg(*ap, long), fi, fr);
+		fpf_print_integer(va_arg(*ap, long), fi, fr, fd);
 	else if (fi->length == LENGTH_LL)
-		fpf_print_integer(va_arg(*ap, long long), fi, fr);
+		fpf_print_integer(va_arg(*ap, long long), fi, fr, fd);
 	else if (fi->length == LENGTH_H)
-		fpf_print_integer((short)va_arg(*ap, int), fi, fr);
+		fpf_print_integer((short)va_arg(*ap, int), fi, fr, fd);
 	else if (fi->length == LENGTH_HH)
-		fpf_print_integer((signed char)va_arg(*ap, int), fi, fr);
+		fpf_print_integer((signed char)va_arg(*ap, int), fi, fr, fd);
 	else if (fi->length == LENGTH_J)
-		fpf_print_integer(va_arg(*ap, intmax_t), fi, fr);
+		fpf_print_integer(va_arg(*ap, intmax_t), fi, fr, fd);
 	else if (fi->length == LENGTH_T)
-		fpf_print_integer(va_arg(*ap, ptrdiff_t), fi, fr);
+		fpf_print_integer(va_arg(*ap, ptrdiff_t), fi, fr, fd);
 	else if (fi->length == LENGTH_Z)
-		fpf_print_integer(va_arg(*ap, ssize_t), fi, fr);
+		fpf_print_integer(va_arg(*ap, ssize_t), fi, fr, fd);
 }
 
 static void	_print_unsigned_integer_by_format(t_format_info *fi,
-				t_format_result *fr, va_list *ap)
+				t_format_result *fr, va_list *ap, int fd)
 {
 	if (fi->length == LENGTH_NONE)
-		fpf_print_integer(va_arg(*ap, unsigned int), fi, fr);
+		fpf_print_integer(va_arg(*ap, unsigned int), fi, fr, fd);
 	else if (fi->length == LENGTH_L)
-		fpf_print_integer(va_arg(*ap, unsigned long), fi, fr);
+		fpf_print_integer(va_arg(*ap, unsigned long), fi, fr, fd);
 	else if (fi->length == LENGTH_LL)
-		fpf_print_integer(va_arg(*ap, unsigned long long), fi, fr);
+		fpf_print_integer(va_arg(*ap, unsigned long long), fi, fr, fd);
 	else if (fi->length == LENGTH_H)
-		fpf_print_integer((unsigned short)va_arg(*ap, int), fi, fr);
+		fpf_print_integer((unsigned short)va_arg(*ap, int), fi, fr, fd);
 	else if (fi->length == LENGTH_HH)
-		fpf_print_integer((unsigned char)va_arg(*ap, int), fi, fr);
+		fpf_print_integer((unsigned char)va_arg(*ap, int), fi, fr, fd);
 	else if (fi->length == LENGTH_J)
-		fpf_print_integer(va_arg(*ap, uintmax_t), fi, fr);
+		fpf_print_integer(va_arg(*ap, uintmax_t), fi, fr, fd);
 	else if (fi->length == LENGTH_T)
-		fpf_print_integer(va_arg(*ap, ptrdiff_t), fi, fr);
+		fpf_print_integer(va_arg(*ap, ptrdiff_t), fi, fr, fd);
 	else if (fi->length == LENGTH_Z)
-		fpf_print_integer(va_arg(*ap, size_t), fi, fr);
+		fpf_print_integer(va_arg(*ap, size_t), fi, fr, fd);
 }
 
+// TODO: rename _ser_count
 static void	_set_count_by_format(t_format_info *fi, t_format_result *fr,
 									va_list *ap)
 {
@@ -86,17 +87,18 @@ static void	_print_string_by_format(t_format_info *fi,
 		fp_print_str(va_arg(*ap, char *), fi, fr, fd);
 }
 
+// TODO: fix order
 void	fp_print_by_format(t_format_info *fi, t_format_result *fr,
 			va_list *ap, int fd)
 {
 	if (ft_strchr("%cs", fi->conv))
 		_print_string_by_format(fi, fr, ap, fd);
 	else if (fi->conv == 'd' || fi->conv == 'i')
-		_print_signed_integer_by_format(fi, fr, ap);
+		_print_signed_integer_by_format(fi, fr, ap, fd);
 	else if (ft_strchr("uxXo", fi->conv))
-		_print_unsigned_integer_by_format(fi, fr, ap);
+		_print_unsigned_integer_by_format(fi, fr, ap, fd);
 	else if (fi->conv == 'p')
-		fpf_print_integer(va_arg(*ap, uintptr_t), fi, fr);
+		fpf_print_integer(va_arg(*ap, uintptr_t), fi, fr, fd);
 	else if (fi->conv == 'n')
 		_set_count_by_format(fi, fr, ap);
 }

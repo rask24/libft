@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 14:20:27 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/23 23:52:28 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/23 23:57:32 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ void			fp_print_str(char *str, t_format_info *fi,
 void			fp_print_padding(char c, int len, int fd);
 
 void			fpf_print_integer(intmax_t nb, t_format_info *fi,
-					t_format_result *fr);
+					t_format_result *fr, int fd);
 void			fp_configure_integer_info(t_integer_info *info, intmax_t nb,
 					t_format_info *fi);
 void			fp_putnbr_base_fd(intmax_t nb, const char *base, bool is_signed,
