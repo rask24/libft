@@ -6,14 +6,14 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:13:31 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/23 00:19:31 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/23 19:56:11 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	_signed_integer_router(t_format_info *fi, t_format_result *fr,
-		va_list *ap)
+static void	_print_signed_integer_by_format(t_format_info *fi,
+				t_format_result *fr, va_list *ap)
 {
 	if (fi->length == LENGTH_NONE)
 		fpf_print_integer(va_arg(*ap, int), fi, fr);
@@ -33,8 +33,8 @@ static void	_signed_integer_router(t_format_info *fi, t_format_result *fr,
 		fpf_print_integer(va_arg(*ap, ssize_t), fi, fr);
 }
 
-static void	_unsigned_integer_router(t_format_info *fi, t_format_result *fr,
-		va_list *ap)
+static void	_print_unsigned_integer_by_format(t_format_info *fi,
+				t_format_result *fr, va_list *ap)
 {
 	if (fi->length == LENGTH_NONE)
 		fpf_print_integer(va_arg(*ap, unsigned int), fi, fr);
@@ -54,7 +54,8 @@ static void	_unsigned_integer_router(t_format_info *fi, t_format_result *fr,
 		fpf_print_integer(va_arg(*ap, size_t), fi, fr);
 }
 
-static void	_n_router(t_format_info *fi, t_format_result *fr, va_list *ap)
+static void	_set_count_by_format(t_format_info *fi, t_format_result *fr,
+									va_list *ap)
 {
 	if (fi->length == LENGTH_NONE)
 		*va_arg(*ap, int *) = fr->cnt;
@@ -74,8 +75,8 @@ static void	_n_router(t_format_info *fi, t_format_result *fr, va_list *ap)
 		*va_arg(*ap, ssize_t *) = fr->cnt;
 }
 
-void	fpf_conversion_router(t_format_info *fi, t_format_result *fr,
-		va_list *ap)
+static void	_print_string_by_format(t_format_info *fi,
+				t_format_result *fr, va_list *ap)
 {
 	if (fi->conversion == '%')
 		fpf_print_char('%', fi, fr);
@@ -83,12 +84,19 @@ void	fpf_conversion_router(t_format_info *fi, t_format_result *fr,
 		fpf_print_char(va_arg(*ap, int), fi, fr);
 	else if (fi->conversion == 's')
 		fpf_print_str(va_arg(*ap, char *), fi, fr);
+}
+
+void	fpf_print_by_format(t_format_info *fi, t_format_result *fr,
+			va_list *ap)
+{
+	if (ft_strchr("%cs", fi->conversion))
+		_print_string_by_format(fi, fr, ap);
 	else if (fi->conversion == 'd' || fi->conversion == 'i')
-		_signed_integer_router(fi, fr, ap);
+		_print_signed_integer_by_format(fi, fr, ap);
 	else if (ft_strchr("uxXo", fi->conversion))
-		_unsigned_integer_router(fi, fr, ap);
+		_print_unsigned_integer_by_format(fi, fr, ap);
 	else if (fi->conversion == 'p')
 		fpf_print_integer(va_arg(*ap, uintptr_t), fi, fr);
 	else if (fi->conversion == 'n')
-		_n_router(fi, fr, ap);
+		_set_count_by_format(fi, fr, ap);
 }

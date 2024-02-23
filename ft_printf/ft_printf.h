@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 14:20:27 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/23 19:33:39 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/23 19:48:41 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ int				ft_printf(const char *format, ...);
 
 void			fpf_configure_format_info( t_format_info *fi,
 					t_format_result *fr, va_list *ap);
-void			fpf_conversion_router(t_format_info *fi, t_format_result *fr,
+void			fpf_print_by_format(t_format_info *fi, t_format_result *fr,
 					va_list *ap);
 void			fpf_print_char(char c, t_format_info *fi, t_format_result *fr);
 void			fpf_print_str(char *str, t_format_info *fi,
