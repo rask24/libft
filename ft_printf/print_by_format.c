@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:13:31 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/23 23:47:11 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/23 23:49:01 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ static void	_print_string_by_format(t_format_info *fi,
 	else if (fi->conv == 'c')
 		fp_print_char(va_arg(*ap, int), fi, fr, fd);
 	else if (fi->conv == 's')
-		fp_print_str(va_arg(*ap, char *), fi, fr);
+		fp_print_str(va_arg(*ap, char *), fi, fr, fd);
 }
 
 void	fp_print_by_format(t_format_info *fi, t_format_result *fr,

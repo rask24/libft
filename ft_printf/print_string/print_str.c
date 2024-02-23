@@ -6,13 +6,13 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 17:02:59 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/23 23:45:04 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/23 23:49:17 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void	fp_print_str(char *str, t_format_info *fi, t_format_result *fr)
+void	fp_print_str(char *str, t_format_info *fi, t_format_result *fr, int fd)
 {
 	int	str_len;
 
@@ -22,11 +22,11 @@ void	fp_print_str(char *str, t_format_info *fi, t_format_result *fr)
 	if (fi->prec != PREC_NONE && fi->prec < str_len)
 		str_len = fi->prec;
 	if (fi->width && !(fi->flags & FLAG_MINUS) && !(fi->flags & FLAG_ZERO))
-		fp_print_padding(' ', fi->width - str_len, STDOUT_FILENO);
+		fp_print_padding(' ', fi->width - str_len, fd);
 	else if (fi->width && !(fi->flags & FLAG_MINUS) && fi->flags & FLAG_ZERO)
-		fp_print_padding('0', fi->width - str_len, STDOUT_FILENO);
-	write(STDOUT_FILENO, str, str_len);
+		fp_print_padding('0', fi->width - str_len, fd);
+	write(fd, str, str_len);
 	if (fi->width && fi->flags & FLAG_MINUS)
-		fp_print_padding(' ', fi->width - str_len, STDOUT_FILENO);
+		fp_print_padding(' ', fi->width - str_len, fd);
 	fr->cnt += ft_max(fi->width, str_len);
 }
