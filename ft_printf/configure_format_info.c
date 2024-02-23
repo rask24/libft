@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_format_info.c                                :+:      :+:    :+:   */
+/*   configure_format_info.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 14:17:21 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/23 19:33:15 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/23 22:39:31 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,17 +56,17 @@ static void	_set_precision(t_format_info *fi, t_format_result *fr,
 		fr->format++;
 		if (*fr->format == '*')
 		{
-			fi->precision = va_arg(*ap, int);
+			fi->prec = va_arg(*ap, int);
 			fr->format++;
 		}
 		else
 		{
-			fi->precision = ft_atoi(fr->format);
+			fi->prec = ft_atoi(fr->format);
 			while (ft_isdigit(*fr->format))
 				fr->format++;
 		}
-		if (fi->precision < 0)
-			fi->precision = PREC_NONE;
+		if (fi->prec < 0)
+			fi->prec = PREC_NONE;
 	}
 }
 
@@ -88,7 +88,7 @@ static void	_set_length_and_conversion(t_format_info *fi, t_format_result *fr)
 		fi->length = LENGTH_Z;
 	while (ft_strchr("lhjtz", *fr->format))
 		fr->format++;
-	fi->conversion = *fr->format;
+	fi->conv = *fr->format;
 }
 
 void	fpf_configure_format_info(t_format_info *fi, t_format_result *fr,

@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 14:20:27 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/23 22:30:42 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/23 22:39:31 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,9 @@ typedef struct s_format_info
 {
 	int			flags;
 	int			width;
-	int			precision;
+	int			prec;
 	int			length;
-	char		conversion;
+	char		conv;
 }				t_format_info;
 
 typedef struct s_integer_info
