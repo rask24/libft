@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 14:20:27 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/23 23:57:32 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/24 00:01:56 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,6 @@ void			fp_configure_integer_info(t_integer_info *info, intmax_t nb,
 					t_format_info *fi);
 void			fp_putnbr_base_fd(intmax_t nb, const char *base, bool is_signed,
 					int fd);
-int				fp_digits_base(intmax_t nb, size_t radix, bool is_signed);
+int				fp_calc_digits_base(intmax_t nb, size_t radix, bool is_signed);
 
 #endif
