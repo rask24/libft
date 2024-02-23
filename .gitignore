@@ -60,7 +60,8 @@ sample.txt
 out.txt
 libftTester/
 libft-unit-test/
-libft-tester-tokyo
+libft-tester-tokyo/
+pdf/
 
 # google tests
 gtest
@@ -71,3 +72,6 @@ unit_tester
 
 # build directory
 build/
+
+# Clang format config
+.clang-format

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_spec.c                                       :+:      :+:    :+:   */
+/*   configure_format_info.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 14:17:21 by reasuke           #+#    #+#             */
-/*   Updated: 2023/10/17 15:42:54 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/23 22:45:24 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	fpf_parse_flags(t_format_spec *fs, t_format_result *fr)
+static void	_set_flags(t_format_info *fi, t_format_result *fr)
 {
 	char		*ptr;
 	ptrdiff_t	index;
@@ -23,82 +23,83 @@ static void	fpf_parse_flags(t_format_spec *fs, t_format_result *fr)
 		if (!ptr)
 			break ;
 		index = ptr - FLAGS;
-		fs->flags |= 1 << index;
+		fi->flags |= 1 << index;
 		fr->format++;
 	}
 }
 
-static void	fpf_parse_width(t_format_spec *fs, t_format_result *fr, va_list *ap)
+static void	_set_width(t_format_info *fi, t_format_result *fr, va_list *ap)
 {
 	if (*fr->format == '*')
 	{
-		fs->width = va_arg(*ap, int);
-		if (fs->width < 0)
+		fi->width = va_arg(*ap, int);
+		if (fi->width < 0)
 		{
-			fs->width = -fs->width;
-			fs->flags |= FLAG_MINUS;
+			fi->width = -fi->width;
+			fi->flags |= FLAG_MINUS;
 		}
 		fr->format++;
 	}
 	else
 	{
-		fs->width = ft_atoi(fr->format);
+		fi->width = ft_atoi(fr->format);
 		while (ft_isdigit(*fr->format))
 			fr->format++;
 	}
 }
 
-static void	fpf_parse_precision(
-				t_format_spec *fs, t_format_result *fr, va_list *ap)
+static void	_set_precision(t_format_info *fi, t_format_result *fr,
+		va_list *ap)
 {
 	if (*fr->format == '.')
 	{
 		fr->format++;
 		if (*fr->format == '*')
 		{
-			fs->precision = va_arg(*ap, int);
+			fi->prec = va_arg(*ap, int);
 			fr->format++;
 		}
 		else
 		{
-			fs->precision = ft_atoi(fr->format);
+			fi->prec = ft_atoi(fr->format);
 			while (ft_isdigit(*fr->format))
 				fr->format++;
 		}
-		if (fs->precision < 0)
-			fs->precision = PREC_NONE;
+		if (fi->prec < 0)
+			fi->prec = PREC_NONE;
 	}
 }
 
-static void	fpf_parse_conversion(t_format_spec *fs, t_format_result *fr)
+static void	_set_length_and_conversion(t_format_info *fi, t_format_result *fr)
 {
 	if (!ft_strncmp(fr->format, "ll", 2))
-		fs->length = LENGTH_LL;
+		fi->length = LENGTH_LL;
 	else if (!ft_strncmp(fr->format, "l", 1))
-		fs->length = LENGTH_L;
+		fi->length = LENGTH_L;
 	else if (!ft_strncmp(fr->format, "hh", 2))
-		fs->length = LENGTH_HH;
+		fi->length = LENGTH_HH;
 	else if (!ft_strncmp(fr->format, "h", 1))
-		fs->length = LENGTH_H;
+		fi->length = LENGTH_H;
 	else if (!ft_strncmp(fr->format, "j", 1))
-		fs->length = LENGTH_J;
+		fi->length = LENGTH_J;
 	else if (!ft_strncmp(fr->format, "t", 1))
-		fs->length = LENGTH_T;
+		fi->length = LENGTH_T;
 	else if (!ft_strncmp(fr->format, "z", 1))
-		fs->length = LENGTH_Z;
+		fi->length = LENGTH_Z;
 	while (ft_strchr("lhjtz", *fr->format))
 		fr->format++;
-	fs->conversion = *fr->format;
+	fi->conv = *fr->format;
 }
 
-void	fpf_parse_spec(t_format_spec *fs, t_format_result *fr, va_list *ap)
+void	fp_configure_format_info(t_format_info *fi, t_format_result *fr,
+			va_list *ap)
 {
 	fr->format++;
-	fpf_parse_flags(fs, fr);
-	fpf_parse_width(fs, fr, ap);
-	if (fs->flags & FLAG_MINUS && fs->flags & FLAG_ZERO)
-		fs->flags &= ~FLAG_ZERO;
-	fpf_parse_precision(fs, fr, ap);
-	fpf_parse_conversion(fs, fr);
+	_set_flags(fi, fr);
+	_set_width(fi, fr, ap);
+	if (fi->flags & FLAG_MINUS && fi->flags & FLAG_ZERO)
+		fi->flags &= ~FLAG_ZERO;
+	_set_precision(fi, fr, ap);
+	_set_length_and_conversion(fi, fr);
 	fr->format++;
 }
