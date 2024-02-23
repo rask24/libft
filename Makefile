@@ -10,7 +10,7 @@ SRC				=  $(addprefix memory/, ft_bzero.c ft_calloc.c ft_memccpy.c ft_memchr.c f
 					$(addprefix type/, ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_tolower.c ft_toupper.c) \
 					$(addprefix string/, ft_atoi.c ft_itoa.c ft_free_strs.c ft_split.c ft_strchr.c ft_strcmp.c ft_strdup.c ft_striteri.c ft_strjoin.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_strstr.c ft_strtol.c ft_strtrim.c) \
 					$(addprefix list/, ft_lstadd_back.c ft_lstadd_front.c ft_lstbefore.c ft_lstclear.c ft_lstdelone.c ft_lstiter.c ft_lstlast.c ft_lstmap.c ft_lstnew.c ft_lstsize.c) \
-					$(addprefix ft_printf/, ft_printf.c ft_vprintf.c ft_vdprintf.c print_integer/putnbr_base.c print_integer/calc_digits_base.c print_by_format.c configure_format_info.c print_integer/print_integer.c print_integer/configure_integer_info.c print_string/print_padding.c print_string/print_char.c print_string/print_str.c) \
+					$(addprefix ft_printf/, ft_printf.c ft_vprintf.c ft_dprintf.c ft_vdprintf.c print_integer/putnbr_base.c print_integer/calc_digits_base.c print_by_format.c configure_format_info.c print_integer/print_integer.c print_integer/configure_integer_info.c print_string/print_padding.c print_string/print_char.c print_string/print_str.c) \
 					$(addprefix get_next_line/, get_next_line.c get_next_line_utils.c) \
 					$(addprefix file/, file_to_lines.c) \
 					$(addprefix integer/, ft_abs.c ft_max.c ft_min.c ft_chmax.c ft_chmin.c ft_swap.c)

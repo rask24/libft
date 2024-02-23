@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 14:20:27 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/24 00:01:56 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/24 00:05:51 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ typedef struct s_integer_info
 
 int				ft_printf(const char *format, ...);
 int				ft_vprintf(const char *format, va_list ap);
+int				ft_dprintf(int fd, const char *format, ...);
 int				ft_vdprintf(int fd, const char *format, va_list ap);
 
 void			fp_configure_format_info( t_format_info *fi,
