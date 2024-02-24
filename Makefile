@@ -3,7 +3,7 @@ NAME			= libft.a
 
 # compiler options
 CFLAGS			= -Wall -Wextra -Werror
-INCLUDE			= -I include
+INCLUDE			= -I $(INC_DIR)
 ARFLAGS			= crs
 
 # directories and source files
