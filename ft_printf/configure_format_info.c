@@ -6,12 +6,13 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 14:17:21 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/24 12:36:23 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/24 12:42:25 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "ft_string.h"
+#include "libft.h"
 
 static void	_set_flags(t_format_info *fi, t_format_result *fr)
 {

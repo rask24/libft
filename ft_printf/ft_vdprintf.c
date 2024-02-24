@@ -6,10 +6,11 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 16:59:33 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/24 12:21:57 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/24 12:41:39 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_output.h"
 #include "ft_printf.h"
 
 int	ft_vdprintf(int fd, const char *format, va_list ap)
