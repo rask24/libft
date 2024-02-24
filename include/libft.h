@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 14:54:41 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/24 12:10:09 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/24 12:13:51 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,6 @@
 # define UPPER_BASE "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 # define MAX_OVERFLOW 0b01
 # define MIN_OVERFLOW 0b10
-
-typedef struct s_list
-{
-	void			*content;
-	struct s_list	*next;
-}					t_list;
 
 typedef struct s_conv_spec
 {
@@ -89,18 +83,6 @@ void				ft_putchar_fd(char c, int fd);
 void				ft_putendl_fd(char *s, int fd);
 void				ft_putnbr_fd(int n, int fd);
 void				ft_putstr_fd(char *s, int fd);
-
-void				ft_lstadd_back(t_list **lst, t_list *new_lst);
-void				ft_lstadd_front(t_list **lst, t_list *new_lst);
-t_list				*ft_lst_before(t_list *lst, t_list *trg);
-void				ft_lstclear(t_list **lst, void (*del)(void *));
-void				ft_lstdelone(t_list *lst, void (*f)(void *));
-void				ft_lstiter(t_list *lst, void (*f)(void *));
-t_list				*ft_lstlast(t_list *lst);
-t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
-						void (*del)(void *));
-t_list				*ft_lstnew(void *content);
-int					ft_lstsize(t_list *lst);
 
 int					ft_printf(const char *format, ...);
 int					ft_vprintf(const char *format, va_list ap);

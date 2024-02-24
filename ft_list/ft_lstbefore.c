@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_lstbefore.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/04 14:17:36 by reasuke           #+#    #+#             */
-/*   Updated: 2023/09/04 14:18:46 by reasuke          ###   ########.fr       */
+/*   Created: 2024/01/15 16:54:29 by reasuke           #+#    #+#             */
+/*   Updated: 2024/02/24 12:16:37 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_list.h"
 
-int	ft_lstsize(t_list *lst)
+t_list	*ft_lst_before(t_list *lst, t_list *trg)
 {
-	int	size;
+	t_list	*before;
 
-	size = 0;
-	while (lst)
-	{
-		size++;
-		lst = lst->next;
-	}
-	return (size);
+	if (!lst)
+		return (NULL);
+	before = lst;
+	while (before->next && before->next != trg)
+		before = before->next;
+	if (before->next != trg)
+		return (NULL);
+	return (before);
 }

@@ -1,30 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear.c                                      :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/04 14:21:01 by reasuke           #+#    #+#             */
-/*   Updated: 2023/09/26 19:04:16 by reasuke          ###   ########.fr       */
+/*   Created: 2023/09/04 22:19:08 by reasuke           #+#    #+#             */
+/*   Updated: 2024/02/24 12:17:01 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_list.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
+	t_list	*ret;
+	t_list	*new_lst;
 	t_list	*cur;
-	t_list	*tmp;
 
-	if (!lst)
-		return ;
-	cur = *lst;
-	while (cur)
+	if (!f || !del)
+		return (NULL);
+	ret = NULL;
+	cur = NULL;
+	while (lst)
 	{
-		tmp = cur;
-		cur = cur->next;
-		ft_lstdelone(tmp, del);
+		new_lst = ft_lstnew(f(lst->content));
+		if (!new_lst)
+		{
+			ft_lstclear(&new_lst, del);
+			return (NULL);
+		}
+		if (cur)
+			cur->next = new_lst;
+		else
+			ret = new_lst;
+		cur = new_lst;
+		lst = lst->next;
 	}
-	*lst = NULL;
+	return (ret);
 }

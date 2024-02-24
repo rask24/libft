@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/04 19:12:35 by reasuke           #+#    #+#             */
-/*   Updated: 2023/09/22 20:07:47 by reasuke          ###   ########.fr       */
+/*   Created: 2023/09/04 14:17:36 by reasuke           #+#    #+#             */
+/*   Updated: 2024/02/24 12:17:11 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_list.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+int	ft_lstsize(t_list *lst)
 {
-	if (!f)
-		return ;
+	int	size;
+
+	size = 0;
 	while (lst)
 	{
-		f(lst->content);
+		size++;
 		lst = lst->next;
 	}
+	return (size);
 }

@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstbefore.c                                     :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/15 16:54:29 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/09 13:15:34 by reasuke          ###   ########.fr       */
+/*   Created: 2023/09/04 14:21:01 by reasuke           #+#    #+#             */
+/*   Updated: 2024/02/24 12:16:44 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_list.h"
 
-t_list	*ft_lst_before(t_list *lst, t_list *trg)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list	*before;
+	t_list	*cur;
+	t_list	*tmp;
 
 	if (!lst)
-		return (NULL);
-	before = lst;
-	while (before->next && before->next != trg)
-		before = before->next;
-	if (before->next != trg)
-		return (NULL);
-	return (before);
+		return ;
+	cur = *lst;
+	while (cur)
+	{
+		tmp = cur;
+		cur = cur->next;
+		ft_lstdelone(tmp, del);
+	}
+	*lst = NULL;
 }

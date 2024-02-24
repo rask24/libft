@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/04 19:22:37 by reasuke           #+#    #+#             */
-/*   Updated: 2023/11/09 15:35:01 by reasuke          ###   ########.fr       */
+/*   Created: 2023/09/04 19:06:44 by reasuke           #+#    #+#             */
+/*   Updated: 2024/02/24 12:16:33 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_list.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new_lst)
+void	ft_lstadd_front(t_list **lst, t_list *new_lst)
 {
-	if (!lst)
+	if (!lst || !new_lst)
 		return ;
 	if (!*lst)
 	{
 		*lst = new_lst;
 		return ;
 	}
-	ft_lstlast(*lst)->next = new_lst;
+	new_lst->next = *lst;
+	*lst = new_lst;
 }
