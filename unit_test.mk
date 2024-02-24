@@ -13,6 +13,7 @@ TEST_BUILD_DIR	= test/build
 # test files
 TEST_SRC		= $(TEST_DIR)/test_strcmp.cpp \
 					$(TEST_DIR)/test_strstr.cpp \
+					$(TEST_DIR)/test_strtol.cpp \
 					$(TEST_DIR)/test_integer.cpp \
 					$(TEST_DIR)/test_lst_before.cpp \
 					$(TEST_DIR)/test_file_to_lines.cpp

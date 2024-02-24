@@ -95,6 +95,7 @@ SRC				+= $(TYPE_DIR)/ft_isalnum.c \
 					$(TYPE_DIR)/ft_isascii.c \
 					$(TYPE_DIR)/ft_isdigit.c \
 					$(TYPE_DIR)/ft_isprint.c \
+					$(TYPE_DIR)/ft_isspace.c \
 					$(TYPE_DIR)/ft_tolower.c \
 					$(TYPE_DIR)/ft_toupper.c
 
