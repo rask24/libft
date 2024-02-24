@@ -85,9 +85,9 @@ SRC				+= $(STRING_DIR)/ft_atoi.c \
 					$(STRING_DIR)/ft_strnstr.c \
 					$(STRING_DIR)/ft_strrchr.c \
 					$(STRING_DIR)/ft_strstr.c \
+					$(STRING_DIR)/ft_strtol.c \
 					$(STRING_DIR)/ft_strtrim.c \
-					$(STRING_DIR)/ft_substr.c \
-					$(STRING_DIR)/ft_strtol/ft_strtol.c
+					$(STRING_DIR)/ft_substr.c
 
 TYPE_DIR		= ft_type
 SRC				+= $(TYPE_DIR)/ft_isalnum.c \

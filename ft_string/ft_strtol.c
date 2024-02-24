@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 16:42:38 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/24 16:24:29 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/24 16:30:44 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,13 +113,18 @@ long	ft_strtol(const char *str, char **endptr, int base)
 	_convert_str_to_long(&info);
 	if (info.endptr && info.digit_cnt)
 		*info.endptr = (char *)(info.str);
-	if (info.overflow)
-		errno = ERANGE;
-	else if (info.digit_cnt == 0)
+	if (info.digit_cnt == 0)
+	{
 		errno = EINVAL;
-	if (info.overflow == MAX_OVERFLOW)
-		return (LONG_MAX);
-	else if (info.overflow == MIN_OVERFLOW)
-		return (LONG_MIN);
+		return (0);
+	}
+	if (info.overflow)
+	{
+		errno = ERANGE;
+		if (info.overflow == MAX_OVERFLOW)
+			return (LONG_MAX);
+		else if (info.overflow == MIN_OVERFLOW)
+			return (LONG_MIN);
+	}
 	return (info.sign * info.nb);
 }
