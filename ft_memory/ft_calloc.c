@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/03 01:01:03 by reasuke           #+#    #+#             */
-/*   Updated: 2023/09/24 15:53:01 by reasuke          ###   ########.fr       */
+/*   Created: 2023/09/03 01:17:23 by reasuke           #+#    #+#             */
+/*   Updated: 2024/02/24 12:25:35 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_memory.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+void	*ft_calloc(size_t count, size_t size)
 {
-	const unsigned char	*u_s1;
-	const unsigned char	*u_s2;
+	void	*ret;
 
-	u_s1 = (const unsigned char *)s1;
-	u_s2 = (const unsigned char *)s2;
-	while (n--)
-	{
-		if (*u_s1 != *u_s2)
-			return (*u_s1 - *u_s2);
-		u_s1++;
-		u_s2++;
-	}
-	return (0);
+	if (count && SIZE_MAX / count < size)
+		return (NULL);
+	ret = malloc(count * size);
+	if (!ret)
+		return (NULL);
+	return (ft_memset(ret, 0, count * size));
 }

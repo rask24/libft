@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/03 01:17:23 by reasuke           #+#    #+#             */
-/*   Updated: 2023/10/12 19:06:41 by reasuke          ###   ########.fr       */
+/*   Created: 2023/09/03 00:54:42 by reasuke           #+#    #+#             */
+/*   Updated: 2024/02/24 12:26:29 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_memory.h"
 
-void	*ft_calloc(size_t count, size_t size)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	void	*ret;
+	const unsigned char	*u;
 
-	if (count && SIZE_MAX / count < size)
-		return (NULL);
-	ret = malloc(count * size);
-	if (!ret)
-		return (NULL);
-	return (ft_memset(ret, 0, count * size));
+	u = (const unsigned char *)s;
+	while (n--)
+	{
+		if (*u == (unsigned char)c)
+			return ((void *)u);
+		u++;
+	}
+	return (NULL);
 }

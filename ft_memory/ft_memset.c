@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/03 00:06:19 by reasuke           #+#    #+#             */
-/*   Updated: 2023/09/25 13:09:15 by reasuke          ###   ########.fr       */
+/*   Created: 2023/09/03 00:03:40 by reasuke           #+#    #+#             */
+/*   Updated: 2024/02/24 12:26:52 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_memory.h"
 
-void	ft_bzero(void *s, size_t n)
+void	*ft_memset(void *b, int c, size_t len)
 {
 	unsigned char	*u;
 
-	u = (unsigned char *)s;
-	while (n--)
-		*u++ = 0;
+	u = (unsigned char *)b;
+	while (len--)
+		*u++ = (unsigned char)c;
+	return (b);
 }

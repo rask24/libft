@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_xmalloc.c                                       :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/24 01:13:22 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/24 01:16:49 by reasuke          ###   ########.fr       */
+/*   Created: 2023/09/03 00:06:19 by reasuke           #+#    #+#             */
+/*   Updated: 2024/02/24 12:25:26 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_memory.h"
 
-void	*ft_xmalloc(size_t size)
+void	ft_bzero(void *s, size_t n)
 {
-	void	*ptr;
+	unsigned char	*u;
 
-	ptr = malloc(size);
-	if (!ptr)
-	{
-		ft_dprintf(STDERR_FILENO,
-			"ft_xmalloc: cannot allocate %zu bytes\n", size);
-		exit(2);
-	}
-	return (ptr);
+	u = (unsigned char *)s;
+	while (n--)
+		*u++ = 0;
 }

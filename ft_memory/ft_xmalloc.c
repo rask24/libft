@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memccpy.c                                       :+:      :+:    :+:   */
+/*   ft_xmalloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/03 00:13:40 by reasuke           #+#    #+#             */
-/*   Updated: 2023/09/24 15:45:48 by reasuke          ###   ########.fr       */
+/*   Created: 2024/02/24 01:13:22 by reasuke           #+#    #+#             */
+/*   Updated: 2024/02/24 12:27:23 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_memory.h"
 #include "libft.h"
 
-void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
+void	*ft_xmalloc(size_t size)
 {
-	unsigned char		*u_dst;
-	const unsigned char	*u_src;
+	void	*ptr;
 
-	u_dst = (unsigned char *)dst;
-	u_src = (const unsigned char *)src;
-	while (n--)
+	ptr = malloc(size);
+	if (!ptr)
 	{
-		if (*u_src == (unsigned char)c)
-		{
-			*u_dst++ = *u_src++;
-			return ((void *)u_dst);
-		}
-		*u_dst++ = *u_src++;
+		ft_dprintf(STDERR_FILENO,
+			"ft_xmalloc: cannot allocate %zu bytes\n", size);
+		exit(2);
 	}
-	return (NULL);
+	return (ptr);
 }

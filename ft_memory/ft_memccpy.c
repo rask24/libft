@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/03 00:54:42 by reasuke           #+#    #+#             */
-/*   Updated: 2023/09/24 16:10:31 by reasuke          ###   ########.fr       */
+/*   Created: 2023/09/03 00:13:40 by reasuke           #+#    #+#             */
+/*   Updated: 2024/02/24 12:26:22 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_memory.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	const unsigned char	*u;
+	unsigned char		*u_dst;
+	const unsigned char	*u_src;
 
-	u = (const unsigned char *)s;
+	u_dst = (unsigned char *)dst;
+	u_src = (const unsigned char *)src;
 	while (n--)
 	{
-		if (*u == (unsigned char)c)
-			return ((void *)u);
-		u++;
+		if (*u_src == (unsigned char)c)
+		{
+			*u_dst++ = *u_src++;
+			return ((void *)u_dst);
+		}
+		*u_dst++ = *u_src++;
 	}
 	return (NULL);
 }
