@@ -6,11 +6,11 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 01:39:22 by reasuke           #+#    #+#             */
-/*   Updated: 2023/09/06 13:21:12 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/24 12:21:12 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_output.h"
 
 void	ft_putendl_fd(char *s, int fd)
 {

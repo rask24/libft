@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 14:54:41 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/24 12:13:51 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/24 12:19:31 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,6 @@ long				ft_strtol(const char *str, char **endptr, int base);
 char				*ft_strstr(const char *haystack, const char *needle);
 char				*ft_strtrim(const char *s1, const char *set);
 char				*ft_substr(const char *s, unsigned int start, size_t len);
-
-void				ft_putchar_fd(char c, int fd);
-void				ft_putendl_fd(char *s, int fd);
-void				ft_putnbr_fd(int n, int fd);
-void				ft_putstr_fd(char *s, int fd);
 
 int					ft_printf(const char *format, ...);
 int					ft_vprintf(const char *format, va_list ap);
