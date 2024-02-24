@@ -6,11 +6,12 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 18:22:21 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/22 13:41:12 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/24 12:04:48 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_file.h"
+#include "get_next_line.h"
 
 static int	_count_lines(char *file_path)
 {

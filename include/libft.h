@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 14:54:41 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/24 01:17:08 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/24 12:05:01 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,6 @@
 # include <stdint.h>
 # include <stdlib.h>
 # include <unistd.h>
-
-# define OK 0
-# define ERROR -1
 
 # define LOWER_BASE "0123456789abcdefghijklmnopqrstuvwxyz"
 # define UPPER_BASE "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
@@ -109,10 +106,6 @@ int					ft_printf(const char *format, ...);
 int					ft_vprintf(const char *format, va_list ap);
 int					ft_dprintf(int fd, const char *format, ...);
 int					ft_vdprintf(int fd, const char *format, va_list ap);
-
-char				*get_next_line(int fd);
-
-char				**file_to_lines(char *file_name);
 
 int					ft_abs(int a);
 int					ft_max(int a, int b);
