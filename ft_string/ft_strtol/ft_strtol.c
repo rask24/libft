@@ -6,110 +6,110 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 16:42:38 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/24 12:33:25 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/24 15:59:46 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_string.h"
 
-static int	parse_prefix(t_conv_spec *sp)
+static int	parse_prefix(t_tol_info *info)
 {
 	ptrdiff_t	index;
 	char		*ptr;
 
-	if (!ft_strncmp(sp->str, "0x", 2))
+	if (!ft_strncmp(info->str, "0x", 2))
 	{
 		index = -1;
-		ptr = ft_strchr(UPPER_BASE, sp->str[2]);
+		ptr = ft_strchr(UPPER_BASE, info->str[2]);
 		if (ptr)
 			index = ptr - UPPER_BASE;
-		ptr = ft_strchr(LOWER_BASE, sp->str[2]);
+		ptr = ft_strchr(LOWER_BASE, info->str[2]);
 		if (ptr)
 			index = ptr - LOWER_BASE;
-		if (index < 0 || sp->base <= index)
+		if (index < 0 || info->base <= index)
 		{
-			sp->digit_cnt++;
-			sp->str++;
+			info->digit_cnt++;
+			info->str++;
 			return (0);
 		}
-		sp->digit_cnt++;
-		sp->str += 2;
+		info->digit_cnt++;
+		info->str += 2;
 	}
 	return (1);
 }
 
-static void	convert_str_to_long(t_conv_spec *sp)
+static void	convert_str_to_long(t_tol_info *info)
 {
 	ptrdiff_t	index;
 	char		*ptr;
 
-	if (sp->base == 16 && !parse_prefix(sp))
+	if (info->base == 16 && !parse_prefix(info))
 		return ;
 	while (1)
 	{
 		index = -1;
-		ptr = ft_strchr(UPPER_BASE, *sp->str);
+		ptr = ft_strchr(UPPER_BASE, *info->str);
 		if (ptr)
 			index = ptr - UPPER_BASE;
-		ptr = ft_strchr(LOWER_BASE, *sp->str);
+		ptr = ft_strchr(LOWER_BASE, *info->str);
 		if (ptr)
 			index = ptr - LOWER_BASE;
-		if (index < 0 || sp->base <= index)
+		if (index < 0 || info->base <= index)
 			break ;
-		if (sp->sign * sp->nb > (LONG_MAX - index) / sp->base && !sp->overflow)
-			sp->overflow = MAX_OVERFLOW;
-		if (sp->sign * sp->nb < (LONG_MIN + index) / sp->base && !sp->overflow)
-			sp->overflow = MIN_OVERFLOW;
-		sp->nb = sp->nb * sp->base + index;
-		sp->digit_cnt++;
-		sp->str++;
+		if (info->sign * info->nb > (LONG_MAX - index) / info->base && !info->overflow)
+			info->overflow = MAX_OVERFLOW;
+		if (info->sign * info->nb < (LONG_MIN + index) / info->base && !info->overflow)
+			info->overflow = MIN_OVERFLOW;
+		info->nb = info->nb * info->base + index;
+		info->digit_cnt++;
+		info->str++;
 	}
 }
 
-static int	init_conv_spec(t_conv_spec *sp,
+static int	init_conv_spec(t_tol_info *info,
 				const char *str, char **endptr, int base)
 {
-	sp->str = str;
-	sp->endptr = endptr;
-	if (sp->endptr)
-		*sp->endptr = (char *)str;
-	sp->nb = 0;
-	sp->sign = 1;
-	sp->digit_cnt = 0;
-	sp->overflow = 0b00;
+	info->str = str;
+	info->endptr = endptr;
+	if (info->endptr)
+		*info->endptr = (char *)str;
+	info->nb = 0;
+	info->sign = 1;
+	info->digit_cnt = 0;
+	info->overflow = 0b00;
 	if (!(base == 0 || (2 <= base && base <= 36)))
 		return (0);
-	while (*sp->str == ' ' || ('\t' <= *sp->str && *sp->str <= '\r'))
-		sp->str++;
-	if (*sp->str == '+' || *sp->str == '-')
-		if (*sp->str++ == '-')
-			sp->sign *= -1;
+	while (*info->str == ' ' || ('\t' <= *info->str && *info->str <= '\r'))
+		info->str++;
+	if (*info->str == '+' || *info->str == '-')
+		if (*info->str++ == '-')
+			info->sign *= -1;
 	if (base)
-		sp->base = base;
-	else if (*sp->str == '0' && (sp->str[1] == 'x' || sp->str[1] == 'X'))
-		sp->base = 16;
-	else if (*sp->str == '0')
-		sp->base = 8;
+		info->base = base;
+	else if (*info->str == '0' && (info->str[1] == 'x' || info->str[1] == 'X'))
+		info->base = 16;
+	else if (*info->str == '0')
+		info->base = 8;
 	else
-		sp->base = 10;
+		info->base = 10;
 	return (1);
 }
 
 long	ft_strtol(const char *str, char **endptr, int base)
 {
-	t_conv_spec	sp;
+	t_tol_info	info;
 
-	if (init_conv_spec(&sp, str, endptr, base))
-		convert_str_to_long(&sp);
-	if (sp.endptr && sp.digit_cnt)
-		*sp.endptr = (char *)(sp.str);
-	if (sp.overflow)
+	if (init_conv_spec(&info, str, endptr, base))
+		convert_str_to_long(&info);
+	if (info.endptr && info.digit_cnt)
+		*info.endptr = (char *)(info.str);
+	if (info.overflow)
 		errno = ERANGE;
-	else if (sp.digit_cnt == 0)
+	else if (info.digit_cnt == 0)
 		errno = EINVAL;
-	if (sp.overflow == MAX_OVERFLOW)
+	if (info.overflow == MAX_OVERFLOW)
 		return (LONG_MAX);
-	else if (sp.overflow == MIN_OVERFLOW)
+	else if (info.overflow == MIN_OVERFLOW)
 		return (LONG_MIN);
-	return (sp.sign * sp.nb);
+	return (info.sign * info.nb);
 }

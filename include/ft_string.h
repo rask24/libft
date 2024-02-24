@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 12:28:56 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/24 12:49:00 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/24 15:57:52 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # define MAX_OVERFLOW 0b01
 # define MIN_OVERFLOW 0b10
 
-typedef struct s_conv_spec
+typedef struct s_tol_info
 {
 	const char		*str;
 	char			**endptr;
@@ -33,7 +33,7 @@ typedef struct s_conv_spec
 	int				sign;
 	int				digit_cnt;
 	int				overflow;
-}					t_conv_spec;
+}					t_tol_info;
 
 int					ft_atoi(const char *str);
 void				*ft_free_strs(char **strs);
