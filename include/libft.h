@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 14:54:41 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/24 12:05:01 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/24 12:10:09 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,12 +106,5 @@ int					ft_printf(const char *format, ...);
 int					ft_vprintf(const char *format, va_list ap);
 int					ft_dprintf(int fd, const char *format, ...);
 int					ft_vdprintf(int fd, const char *format, va_list ap);
-
-int					ft_abs(int a);
-int					ft_max(int a, int b);
-int					ft_min(int a, int b);
-bool				ft_chmax(int *a, int b);
-bool				ft_chmin(int *a, int b);
-void				ft_swap(int *a, int *b);
 
 #endif

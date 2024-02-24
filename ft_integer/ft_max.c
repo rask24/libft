@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_chmin.c                                         :+:      :+:    :+:   */
+/*   ft_max.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/30 19:54:01 by reasuke           #+#    #+#             */
-/*   Updated: 2023/11/30 19:55:22 by reasuke          ###   ########.fr       */
+/*   Created: 2023/11/30 19:51:36 by reasuke           #+#    #+#             */
+/*   Updated: 2024/02/24 12:15:40 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-bool	ft_chmin(int *a, int b)
+int	ft_max(int a, int b)
 {
-	if (b < *a)
-	{
-		*a = b;
-		return (true);
-	}
-	return (false);
+	if (a < b)
+		return (b);
+	return (a);
 }

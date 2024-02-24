@@ -6,11 +6,12 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 18:12:55 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/24 00:01:56 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/24 12:11:49 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
+#include "ft_integer.h"
 
 static void	_set_base(t_integer_info *info, t_format_info *fi)
 {

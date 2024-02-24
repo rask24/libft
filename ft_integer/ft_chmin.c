@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_chmax.c                                         :+:      :+:    :+:   */
+/*   ft_chmin.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/30 19:53:14 by reasuke           #+#    #+#             */
-/*   Updated: 2023/11/30 20:28:06 by reasuke          ###   ########.fr       */
+/*   Created: 2023/11/30 19:54:01 by reasuke           #+#    #+#             */
+/*   Updated: 2024/02/24 12:15:37 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_integer.h"
 
-bool	ft_chmax(int *a, int b)
+bool	ft_chmin(int *a, int b)
 {
-	if (*a < b)
+	if (b < *a)
 	{
 		*a = b;
 		return (true);

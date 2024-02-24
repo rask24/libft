@@ -14,7 +14,7 @@ SRC				=  $(addprefix memory/, ft_bzero.c ft_calloc.c ft_memccpy.c ft_memchr.c f
 					$(addprefix ft_printf/, ft_printf.c ft_vprintf.c ft_dprintf.c ft_vdprintf.c print_integer/putnbr_base.c print_integer/calc_digits_base.c print_by_format.c configure_format_info.c print_integer/print_integer.c print_integer/configure_integer_info.c print_string/print_padding.c print_string/print_char.c print_string/print_str.c) \
 					$(addprefix get_next_line/, get_next_line.c get_next_line_utils.c) \
 					$(addprefix ft_file/, file_to_lines.c) \
-					$(addprefix integer/, ft_abs.c ft_max.c ft_min.c ft_chmax.c ft_chmin.c ft_swap.c)
+					$(addprefix ft_integer/, ft_abs.c ft_max.c ft_min.c ft_chmax.c ft_chmin.c ft_swap.c)
 OBJ				= $(patsubst %.c, $(BUILD_DIR)/%.o, $(SRC))
 
 # colors
