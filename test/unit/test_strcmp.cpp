@@ -8,7 +8,7 @@
 extern "C" {
 #include <string.h>
 
-#include "libft.h"
+#include "ft_string.h"
 }
 
 TEST(ft_strcmp, test) {

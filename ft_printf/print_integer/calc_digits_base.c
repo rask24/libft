@@ -6,11 +6,11 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 18:48:21 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/24 00:01:56 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/24 12:42:09 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_printf.h"
 
 int	fp_calc_digits_base(intmax_t nb, size_t radix, bool is_signed)
 {

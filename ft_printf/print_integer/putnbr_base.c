@@ -6,11 +6,13 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 18:48:21 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/24 00:03:28 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/24 12:42:04 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_output.h"
+#include "ft_printf.h"
+#include "ft_string.h"
 
 static void	_putnbr_base_rec(uintmax_t uim_nb, size_t radix, const char *base,
 				int fd)

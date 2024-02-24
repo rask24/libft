@@ -6,11 +6,12 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 18:12:55 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/23 23:59:38 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/24 12:42:45 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "ft_output.h"
+#include "ft_printf.h"
 
 void	fpf_print_integer(intmax_t nb, t_format_info *fi, t_format_result *fr,
 			int fd)
