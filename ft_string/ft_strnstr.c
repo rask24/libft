@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/03 01:38:08 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/24 12:35:45 by reasuke          ###   ########.fr       */
+/*   Created: 2023/09/02 15:00:49 by reasuke           #+#    #+#             */
+/*   Updated: 2024/02/24 12:32:53 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_output.h"
 #include "ft_string.h"
 
-void	ft_putstr_fd(char *s, int fd)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	if (!s)
-		return ;
-	write(fd, s, ft_strlen(s));
+	size_t	needle_len;
+
+	if (!*needle)
+		return ((char *)haystack);
+	if (len == 0)
+		return (NULL);
+	needle_len = ft_strlen(needle);
+	while (*haystack && needle_len <= len)
+	{
+		if (!ft_strncmp(haystack, needle, needle_len))
+			return ((char *)haystack);
+		haystack++;
+		len--;
+	}
+	return (NULL);
 }

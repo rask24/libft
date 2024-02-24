@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/02 17:49:30 by reasuke           #+#    #+#             */
-/*   Updated: 2023/09/03 13:04:40 by reasuke          ###   ########.fr       */
+/*   Created: 2024/01/10 13:19:17 by reasuke           #+#    #+#             */
+/*   Updated: 2024/02/24 12:33:00 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_string.h"
 
-char	*ft_strdup(const char *s1)
+char	*ft_strstr(const char *haystack, const char *needle)
 {
-	char	*ret;
-	size_t	s1_len;
+	size_t	needle_len;
 
-	s1_len = ft_strlen(s1);
-	ret = malloc(s1_len + 1);
-	if (!ret)
+	needle_len = ft_strlen(needle);
+	if (needle_len == 0)
+		return ((char *)haystack);
+	if (!haystack)
 		return (NULL);
-	ft_strlcpy(ret, s1, s1_len + 1);
-	return (ret);
+	while (*haystack)
+	{
+		if (!ft_strncmp(haystack, needle, needle_len))
+			return ((char *)haystack);
+		haystack++;
+	}
+	return (NULL);
 }

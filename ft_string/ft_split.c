@@ -6,11 +6,11 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 22:09:19 by reasuke           #+#    #+#             */
-/*   Updated: 2023/09/25 14:11:51 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/24 12:31:33 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_string.h"
 
 static char	*ft_strdup_with_delimiter(const char *s1, char c)
 {

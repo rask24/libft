@@ -6,13 +6,11 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 16:42:38 by reasuke           #+#    #+#             */
-/*   Updated: 2023/11/30 19:39:07 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/24 12:33:25 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-#include "libft.h"
+#include "ft_string.h"
 
 static int	parse_prefix(t_conv_spec *sp)
 {

@@ -1,18 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_free_strs.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/02 16:18:20 by reasuke           #+#    #+#             */
-/*   Updated: 2023/10/12 19:02:50 by reasuke          ###   ########.fr       */
+/*   Created: 2023/11/03 15:06:58 by reasuke           #+#    #+#             */
+/*   Updated: 2024/02/24 12:31:12 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_string.h"
 
-int	ft_atoi(const char *str)
+void	*ft_free_strs(char **strs)
 {
-	return (ft_strtol(str, NULL, 10));
+	char	**tmp;
+
+	tmp = strs;
+	while (*tmp)
+		free(*tmp++);
+	free(strs);
+	return (NULL);
 }

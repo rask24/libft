@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/02 14:58:47 by reasuke           #+#    #+#             */
-/*   Updated: 2023/09/03 01:11:10 by reasuke          ###   ########.fr       */
+/*   Created: 2023/09/02 14:56:21 by reasuke           #+#    #+#             */
+/*   Updated: 2024/02/24 12:32:56 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_string.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+char	*ft_strrchr(const char *s, int c)
 {
-	while (n--)
+	const char	*ret;
+
+	ret = NULL;
+	while (*s)
 	{
-		if (!*s1 || *s1 != *s2)
-			return ((unsigned char)*s1 - (unsigned char)*s2);
-		s1++;
-		s2++;
+		if ((unsigned char)*s == (unsigned char)c)
+			ret = s;
+		s++;
 	}
-	return (0);
+	if ((unsigned char)*s == (unsigned char)c)
+		return ((char *)s);
+	return ((char *)ret);
 }

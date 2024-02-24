@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/02 15:17:21 by reasuke           #+#    #+#             */
-/*   Updated: 2023/09/02 15:19:10 by reasuke          ###   ########.fr       */
+/*   Created: 2023/09/02 17:37:54 by reasuke           #+#    #+#             */
+/*   Updated: 2024/02/24 12:32:34 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_string.h"
 
-size_t	ft_strlen(const char *s)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t	len;
+	size_t	dst_len;
 
-	len = 0;
-	while (s[len])
-		len++;
-	return (len);
+	if (dstsize == 0)
+		return (ft_strlen(src));
+	dst_len = ft_strlen(dst);
+	if (dstsize <= dst_len)
+		return (ft_strlen(src) + dstsize);
+	while (*dst)
+		dst++;
+	return (ft_strlcpy(dst, src, dstsize - dst_len) + dst_len);
 }

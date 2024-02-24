@@ -6,11 +6,11 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 01:28:34 by reasuke           #+#    #+#             */
-/*   Updated: 2023/10/09 12:33:20 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/24 12:31:30 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_string.h"
 
 static int	calc_digits(unsigned int n)
 {
