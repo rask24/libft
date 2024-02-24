@@ -6,11 +6,12 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 16:42:38 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/24 15:59:46 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/24 16:09:58 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_string.h"
+#include "ft_type.h"
 
 static int	parse_prefix(t_tol_info *info)
 {
@@ -79,7 +80,7 @@ static int	init_conv_spec(t_tol_info *info,
 	info->overflow = 0b00;
 	if (!(base == 0 || (2 <= base && base <= 36)))
 		return (0);
-	while (*info->str == ' ' || ('\t' <= *info->str && *info->str <= '\r'))
+	while (ft_isspace(*info->str))
 		info->str++;
 	if (*info->str == '+' || *info->str == '-')
 		if (*info->str++ == '-')
