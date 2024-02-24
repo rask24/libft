@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/02 15:33:57 by reasuke           #+#    #+#             */
-/*   Updated: 2023/09/02 16:17:06 by reasuke          ###   ########.fr       */
+/*   Created: 2023/09/02 15:32:06 by reasuke           #+#    #+#             */
+/*   Updated: 2024/02/24 12:46:06 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_type.h"
 
-int	ft_isascii(int c)
+int	ft_isalnum(int c)
 {
-	return (0x00 <= c && c <= 0x7f);
+	return (ft_isalpha(c) || ft_isdigit(c));
 }
