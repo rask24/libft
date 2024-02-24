@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 12:28:56 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/24 12:35:23 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/02/24 12:49:00 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,5 @@ long				ft_strtol(const char *str, char **endptr, int base);
 char				*ft_strstr(const char *haystack, const char *needle);
 char				*ft_strtrim(const char *s1, const char *set);
 char				*ft_substr(const char *s, unsigned int start, size_t len);
-
 
 #endif

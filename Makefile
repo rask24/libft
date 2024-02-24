@@ -1,20 +1,107 @@
+# archives
 NAME			= libft.a
+
+# compiler options
 CFLAGS			= -Wall -Wextra -Werror
-INCLUDE			= -I $(INC_DIR)
+INCLUDE			= -I include
 ARFLAGS			= crs
 
+# directories and source files
 BUILD_DIR		= build
 INC_DIR			= include
 
-SRC				=  $(addprefix ft_memory/, ft_bzero.c ft_calloc.c ft_memccpy.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_memset.c ft_xmalloc.c) \
-					$(addprefix ft_output/, ft_putchar_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c) \
-					$(addprefix ft_type/, ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_tolower.c ft_toupper.c) \
-					$(addprefix ft_string/, ft_atoi.c ft_itoa.c ft_free_strs.c ft_split.c ft_strchr.c ft_strcmp.c ft_strdup.c ft_striteri.c ft_strjoin.c ft_strlcat.c ft_strlcpy.c ft_strlen.c ft_strmapi.c ft_strncmp.c ft_strnstr.c ft_strrchr.c ft_strstr.c ft_strtol.c ft_strtrim.c) \
-					$(addprefix ft_list/, ft_lstadd_back.c ft_lstadd_front.c ft_lstbefore.c ft_lstclear.c ft_lstdelone.c ft_lstiter.c ft_lstlast.c ft_lstmap.c ft_lstnew.c ft_lstsize.c) \
-					$(addprefix ft_printf/, ft_printf.c ft_vprintf.c ft_dprintf.c ft_vdprintf.c print_integer/putnbr_base.c print_integer/calc_digits_base.c print_by_format.c configure_format_info.c print_integer/print_integer.c print_integer/configure_integer_info.c print_string/print_padding.c print_string/print_char.c print_string/print_str.c) \
-					$(addprefix get_next_line/, get_next_line.c get_next_line_utils.c) \
-					$(addprefix ft_file/, file_to_lines.c) \
-					$(addprefix ft_integer/, ft_abs.c ft_max.c ft_min.c ft_chmax.c ft_chmin.c ft_swap.c)
+SRC				=
+
+FILE_DIR		= ft_file
+SRC				+= $(FILE_DIR)/file_to_lines.c
+
+INTEGER_DIR		= ft_integer
+SRC				+= $(INTEGER_DIR)/ft_abs.c \
+					$(INTEGER_DIR)/ft_chmax.c \
+					$(INTEGER_DIR)/ft_chmin.c \
+					$(INTEGER_DIR)/ft_max.c \
+					$(INTEGER_DIR)/ft_min.c \
+					$(INTEGER_DIR)/ft_swap.c
+
+LIST_DIR		= ft_list
+SRC				+= $(LIST_DIR)/ft_lstadd_back.c \
+					$(LIST_DIR)/ft_lstadd_front.c \
+					$(LIST_DIR)/ft_lstbefore.c \
+					$(LIST_DIR)/ft_lstclear.c \
+					$(LIST_DIR)/ft_lstdelone.c \
+					$(LIST_DIR)/ft_lstiter.c \
+					$(LIST_DIR)/ft_lstlast.c \
+					$(LIST_DIR)/ft_lstmap.c \
+					$(LIST_DIR)/ft_lstnew.c \
+					$(LIST_DIR)/ft_lstsize.c
+
+MEMORY_DIR		= ft_memory
+SRC				+= $(MEMORY_DIR)/ft_bzero.c \
+					$(MEMORY_DIR)/ft_calloc.c \
+					$(MEMORY_DIR)/ft_memccpy.c \
+					$(MEMORY_DIR)/ft_memchr.c \
+					$(MEMORY_DIR)/ft_memcmp.c \
+					$(MEMORY_DIR)/ft_memcmp.c \
+					$(MEMORY_DIR)/ft_memmove.c \
+					$(MEMORY_DIR)/ft_memset.c \
+					$(MEMORY_DIR)/ft_xmalloc.c
+
+OUTPUT_DIR		= ft_output
+SRC				+= $(OUTPUT_DIR)/ft_putchar_fd.c \
+					$(OUTPUT_DIR)/ft_putendl_fd.c \
+					$(OUTPUT_DIR)/ft_putnbr_fd.c \
+					$(OUTPUT_DIR)/ft_putstr_fd.c
+
+PRINTF_DIR		= ft_printf
+SRC				+= $(PRINTF_DIR)/configure_format_info.c \
+					$(PRINTF_DIR)/ft_dprintf.c \
+					$(PRINTF_DIR)/ft_printf.c \
+					$(PRINTF_DIR)/ft_vdprintf.c \
+					$(PRINTF_DIR)/ft_vprintf.c \
+					$(PRINTF_DIR)/print_by_format.c \
+					$(PRINTF_DIR)/print_integer/calc_digits_base.c \
+					$(PRINTF_DIR)/print_integer/configure_integer_info.c \
+					$(PRINTF_DIR)/print_integer/print_integer.c \
+					$(PRINTF_DIR)/print_integer/putnbr_base.c \
+					$(PRINTF_DIR)/print_string/print_char.c \
+					$(PRINTF_DIR)/print_string/print_padding.c \
+					$(PRINTF_DIR)/print_string/print_str.c
+
+STRING_DIR		= ft_string
+SRC				+= $(STRING_DIR)/ft_atoi.c \
+					$(STRING_DIR)/ft_free_strs.c \
+					$(STRING_DIR)/ft_itoa.c \
+					$(STRING_DIR)/ft_split.c \
+					$(STRING_DIR)/ft_strchr.c \
+					$(STRING_DIR)/ft_strcmp.c \
+					$(STRING_DIR)/ft_strdup.c \
+					$(STRING_DIR)/ft_striteri.c \
+					$(STRING_DIR)/ft_strjoin.c \
+					$(STRING_DIR)/ft_strlcat.c \
+					$(STRING_DIR)/ft_strlcpy.c \
+					$(STRING_DIR)/ft_strlen.c \
+					$(STRING_DIR)/ft_strmapi.c \
+					$(STRING_DIR)/ft_strncmp.c \
+					$(STRING_DIR)/ft_strnstr.c \
+					$(STRING_DIR)/ft_strrchr.c \
+					$(STRING_DIR)/ft_strstr.c \
+					$(STRING_DIR)/ft_strtol.c \
+					$(STRING_DIR)/ft_strtrim.c \
+					$(STRING_DIR)/ft_substr.c
+
+TYPE_DIR		= ft_type
+SRC				+= $(TYPE_DIR)/ft_isalnum.c \
+					$(TYPE_DIR)/ft_isalpha.c \
+					$(TYPE_DIR)/ft_isascii.c \
+					$(TYPE_DIR)/ft_isdigit.c \
+					$(TYPE_DIR)/ft_isprint.c \
+					$(TYPE_DIR)/ft_tolower.c \
+					$(TYPE_DIR)/ft_toupper.c
+
+GNL_DIR			= get_next_line
+SRC				+= $(GNL_DIR)/get_next_line.c \
+					$(GNL_DIR)/get_next_line_utils.c
+
 OBJ				= $(patsubst %.c, $(BUILD_DIR)/%.o, $(SRC))
 
 # colors
@@ -65,6 +152,6 @@ re: fclean all
 
 .PHONY: norm
 norm:
-	norminette ft_printf get_next_line list memory string type file output integer libft.h
+	norminette $(FILE_DIR) $(INTEGER_DIR) $(LIST_DIR) $(MEMORY_DIR) $(OUTPUT_DIR) $(PRINTF_DIR) $(STRING_DIR) $(TYPE_DIR) $(GNL_DIR) $(INC_DIR)
 
 include unit_test.mk
