@@ -4,6 +4,8 @@ TEST_NAME		= unit_tester
 # compilar options
 CXXFLAGS		= -std=c++17 -Wall -Wextra -Werror
 PROD_FLAGS		= -O3
+LD_FLAGS		= -L .
+LD_LIBS			= -lft
 
 # directories
 TEST_DIR		= test/unit
@@ -31,7 +33,7 @@ GTEST_FUSE		= fuse_gtest_files.py
 # rules for test
 .PHONY: test
 test: all $(GTEST_OBJ) $(TEST_OBJ)
-	@$(CXX) -L . -lft -lpthread $(TEST_OBJ) $(GTEST_OBJ) -o $(TEST_NAME)
+	@$(CXX) -lpthread $(TEST_OBJ) $(GTEST_OBJ) $(LD_FLAGS) $(LD_LIBS) -o $(TEST_NAME)
 	@echo "\n$(BLUE)[gtest]\t\t./$(TEST_NAME)$(RESET)\t$(GREEN)compiled ✔$(RESET)"
 	./$(TEST_NAME)
 

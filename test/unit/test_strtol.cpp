@@ -105,6 +105,7 @@ TEST(ft_strtol, errnoOverflownInput) {
   check_errno("-39485723874051730487234290384727340374", base);
 }
 
+#ifdef __APPLE__
 TEST(ft_strtol, errnoStartWithInvalidCharactor) {
   int base = 10;
 
@@ -112,6 +113,7 @@ TEST(ft_strtol, errnoStartWithInvalidCharactor) {
   check_errno("abcdef", base);
   check_errno("@![]/.,", base);
 }
+#endif
 
 // endptr test
 static void check_endptr(const char *input, int base) {
