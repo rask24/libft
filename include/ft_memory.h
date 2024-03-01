@@ -6,13 +6,14 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 12:23:59 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/24 12:26:08 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/03/01 22:30:41 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_MEMORY_H
 # define FT_MEMORY_H
 
+# include <stdint.h>
 # include <stdlib.h>
 
 void	ft_bzero(void *s, size_t n);
