@@ -82,6 +82,7 @@ SRC				+= $(STRING_DIR)/ft_atoi.c \
 					$(STRING_DIR)/ft_strlen.c \
 					$(STRING_DIR)/ft_strmapi.c \
 					$(STRING_DIR)/ft_strncmp.c \
+					$(STRING_DIR)/ft_strndup.c \
 					$(STRING_DIR)/ft_strnstr.c \
 					$(STRING_DIR)/ft_strrchr.c \
 					$(STRING_DIR)/ft_strstr.c \
