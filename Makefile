@@ -15,19 +15,19 @@ SRC				=
 FILE_DIR		= ft_file
 SRC				+= $(FILE_DIR)/file_to_lines.c
 
-INTEGER_DIR		= ft_math
-SRC				+= $(INTEGER_DIR)/ft_abs.c \
-					$(INTEGER_DIR)/ft_chmax.c \
-					$(INTEGER_DIR)/ft_chmin.c \
-					$(INTEGER_DIR)/ft_max.c \
-					$(INTEGER_DIR)/ft_min.c \
-					$(INTEGER_DIR)/ft_swap.c \
-					$(INTEGER_DIR)/ft_fabs.c \
-					$(INTEGER_DIR)/ft_fchmax.c \
-					$(INTEGER_DIR)/ft_fchmin.c \
-					$(INTEGER_DIR)/ft_fmax.c \
-					$(INTEGER_DIR)/ft_fmin.c \
-					$(INTEGER_DIR)/ft_fswap.c
+MATH_DIR		= ft_math
+SRC				+= $(MATH_DIR)/ft_abs.c \
+					$(MATH_DIR)/ft_chmax.c \
+					$(MATH_DIR)/ft_chmin.c \
+					$(MATH_DIR)/ft_max.c \
+					$(MATH_DIR)/ft_min.c \
+					$(MATH_DIR)/ft_swap.c \
+					$(MATH_DIR)/ft_fabs.c \
+					$(MATH_DIR)/ft_fchmax.c \
+					$(MATH_DIR)/ft_fchmin.c \
+					$(MATH_DIR)/ft_fmax.c \
+					$(MATH_DIR)/ft_fmin.c \
+					$(MATH_DIR)/ft_fswap.c
 
 LIST_DIR		= ft_list
 SRC				+= $(LIST_DIR)/ft_lstadd_back.c \
