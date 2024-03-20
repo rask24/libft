@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fchmin.c                                        :+:      :+:    :+:   */
+/*   ft_fabs.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/30 19:54:01 by reasuke           #+#    #+#             */
-/*   Updated: 2024/03/20 22:53:44 by reasuke          ###   ########.fr       */
+/*   Created: 2024/02/09 13:17:40 by reasuke           #+#    #+#             */
+/*   Updated: 2024/03/20 22:59:14 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_math.h"
-
-bool	ft_fchmin(double *a, double b)
+double	ft_fabs(double a)
 {
-	if (b < *a)
-	{
-		*a = b;
-		return (true);
-	}
-	return (false);
+	if (a < 0)
+		return (-a);
+	return (a);
 }

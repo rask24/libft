@@ -6,11 +6,9 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 19:51:36 by reasuke           #+#    #+#             */
-/*   Updated: 2023/12/18 17:45:27 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/03/20 22:54:07 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 double	ft_fmax(double a, double b)
 {

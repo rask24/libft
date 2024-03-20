@@ -65,3 +65,62 @@ TEST(ft_swap, test) {
   EXPECT_EQ(a, 0);
   EXPECT_EQ(b, 42);
 }
+
+TEST(ft_fabs, test) {
+  EXPECT_EQ(ft_fabs(4.2), 4.2);
+  EXPECT_EQ(ft_fabs(0), 0);
+  EXPECT_EQ(ft_fabs(-4.2), 4.2);
+}
+
+TEST(ft_fchmax, chooseMax) {
+  double a = 0;
+  double b = 4.2;
+
+  EXPECT_TRUE(ft_fchmax(&a, b));
+  EXPECT_EQ(a, 4.2);
+}
+
+TEST(ft_fchmax, notChooseMax) {
+  double a = 4.2;
+  double b = 0;
+
+  EXPECT_FALSE(ft_fchmax(&a, b));
+  EXPECT_EQ(a, 4.2);
+}
+
+TEST(ft_fchmin, chooseMin) {
+  double a = 4.2;
+  double b = 0;
+
+  EXPECT_TRUE(ft_fchmin(&a, b));
+  EXPECT_EQ(a, b);
+}
+
+TEST(ft_fchmin, notChooseMin) {
+  double a = 0;
+  double b = 4.2;
+
+  EXPECT_FALSE(ft_fchmin(&a, b));
+  EXPECT_EQ(a, 0);
+}
+
+TEST(ft_fmax, test) {
+  EXPECT_EQ(ft_fmax(0, 0), 0);
+  EXPECT_EQ(ft_fmax(4.2, 0), 4.2);
+  EXPECT_EQ(ft_fmax(0, 4.2), 4.2);
+}
+
+TEST(ft_fmin, test) {
+  EXPECT_EQ(ft_fmin(0, 0), 0);
+  EXPECT_EQ(ft_fmin(4.2, 0), 0);
+  EXPECT_EQ(ft_fmin(0, 4.2), 0);
+}
+
+TEST(ft_fswap, test) {
+  double a = 4.2;
+  double b = 0;
+
+  ft_fswap(&a, &b);
+  EXPECT_EQ(a, 0);
+  EXPECT_EQ(b, 4.2);
+}

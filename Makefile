@@ -21,7 +21,13 @@ SRC				+= $(INTEGER_DIR)/ft_abs.c \
 					$(INTEGER_DIR)/ft_chmin.c \
 					$(INTEGER_DIR)/ft_max.c \
 					$(INTEGER_DIR)/ft_min.c \
-					$(INTEGER_DIR)/ft_swap.c
+					$(INTEGER_DIR)/ft_swap.c \
+					$(INTEGER_DIR)/ft_fabs.c \
+					$(INTEGER_DIR)/ft_fchmax.c \
+					$(INTEGER_DIR)/ft_fchmin.c \
+					$(INTEGER_DIR)/ft_fmax.c \
+					$(INTEGER_DIR)/ft_fmin.c \
+					$(INTEGER_DIR)/ft_fswap.c
 
 LIST_DIR		= ft_list
 SRC				+= $(LIST_DIR)/ft_lstadd_back.c \
