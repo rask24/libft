@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_chmin.c                                         :+:      :+:    :+:   */
+/*   ft_fchmin.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 19:54:01 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/24 12:15:37 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/03/20 22:53:44 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_integer.h"
+#include "ft_math.h"
 
-bool	ft_chmin(int *a, int b)
+bool	ft_fchmin(double *a, double b)
 {
 	if (b < *a)
 	{

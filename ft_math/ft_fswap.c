@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_chmax.c                                         :+:      :+:    :+:   */
+/*   ft_fswap.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/30 19:53:14 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/24 12:15:30 by reasuke          ###   ########.fr       */
+/*   Created: 2023/11/30 20:29:07 by reasuke           #+#    #+#             */
+/*   Updated: 2024/03/20 22:54:01 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_integer.h"
-
-bool	ft_chmax(int *a, int b)
+void	ft_fswap(double *a, double *b)
 {
-	if (*a < b)
-	{
-		*a = b;
-		return (true);
-	}
-	return (false);
+	double	tmp;
+
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 }
