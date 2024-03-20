@@ -4,7 +4,7 @@
 #include "unit_test_utils.hpp"
 
 extern "C" {
-#include "ft_integer.h"
+#include "ft_math.h"
 }
 
 TEST(ft_abs, test) {

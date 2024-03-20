@@ -15,7 +15,7 @@ SRC				=
 FILE_DIR		= ft_file
 SRC				+= $(FILE_DIR)/file_to_lines.c
 
-INTEGER_DIR		= ft_integer
+INTEGER_DIR		= ft_math
 SRC				+= $(INTEGER_DIR)/ft_abs.c \
 					$(INTEGER_DIR)/ft_chmax.c \
 					$(INTEGER_DIR)/ft_chmin.c \

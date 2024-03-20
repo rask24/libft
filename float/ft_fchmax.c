@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_chmax.c                                         :+:      :+:    :+:   */
+/*   ft_fchmax.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 19:53:14 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/24 12:15:30 by reasuke          ###   ########.fr       */
+/*   Updated: 2023/12/18 17:44:36 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_integer.h"
+#include "libft.h"
 
-bool	ft_chmax(int *a, int b)
+bool	ft_fchmax(double *a, double b)
 {
 	if (*a < b)
 	{

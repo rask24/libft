@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_integer.h                                       :+:      :+:    :+:   */
+/*   ft_fmax.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/24 12:09:36 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/24 12:10:31 by reasuke          ###   ########.fr       */
+/*   Created: 2023/11/30 19:51:36 by reasuke           #+#    #+#             */
+/*   Updated: 2023/12/18 17:45:27 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_INTEGER_H
-# define FT_INTEGER_H
+#include "libft.h"
 
-# include <stdbool.h>
-
-int		ft_abs(int a);
-int		ft_max(int a, int b);
-int		ft_min(int a, int b);
-bool	ft_chmax(int *a, int b);
-bool	ft_chmin(int *a, int b);
-void	ft_swap(int *a, int *b);
-
-#endif
+double	ft_fmax(double a, double b)
+{
+	if (a < b)
+		return (b);
+	return (a);
+}
