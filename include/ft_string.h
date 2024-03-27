@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 12:28:56 by reasuke           #+#    #+#             */
-/*   Updated: 2024/03/12 17:03:11 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/03/27 11:19:16 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <errno.h>
 # include <limits.h>
+# include <stdbool.h>
 # include <stddef.h>
 # include <stdint.h>
 # include <stdlib.h>
