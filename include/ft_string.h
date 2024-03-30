@@ -6,35 +6,15 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 12:28:56 by reasuke           #+#    #+#             */
-/*   Updated: 2024/03/27 11:19:16 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/03/30 15:00:01 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_STRING_H
 # define FT_STRING_H
 
-# include <errno.h>
-# include <limits.h>
-# include <stdbool.h>
 # include <stddef.h>
 # include <stdint.h>
-# include <stdlib.h>
-
-# define LOWER_BASE "0123456789abcdefghijklmnopqrstuvwxyz"
-# define UPPER_BASE "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-# define MAX_OVERFLOW 0b01
-# define MIN_OVERFLOW 0b10
-
-typedef struct s_tol_info
-{
-	const char		*str;
-	char			**endptr;
-	long			nb;
-	int				base;
-	int				sign;
-	int				digit_cnt;
-	int				overflow;
-}					t_tol_info;
 
 int					ft_atoi(const char *str);
 void				*ft_free_strs(char **strs);

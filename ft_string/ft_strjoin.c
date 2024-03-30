@@ -6,10 +6,11 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 12:49:03 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/24 12:32:31 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/03/30 15:01:20 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "ft_string.h"
 
 char	*ft_strjoin(const char *s1, const char *s2)
