@@ -6,12 +6,12 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 17:02:59 by reasuke           #+#    #+#             */
-/*   Updated: 2024/03/30 15:42:42 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/03/30 16:05:39 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include "ft_printf.h"
+#include "../ft_printf_module.h"
 #include "ft_math.h"
 #include "ft_string.h"
 

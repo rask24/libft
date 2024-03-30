@@ -6,12 +6,12 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/03 16:13:31 by reasuke           #+#    #+#             */
-/*   Updated: 2024/03/30 15:42:21 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/03/30 16:04:18 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include "ft_printf.h"
+#include "ft_printf_module.h"
 #include "ft_string.h"
 
 static void	_print_string_by_format(t_format_info *fi,
