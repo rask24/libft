@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 11:57:42 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/24 12:05:56 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/03/30 15:15:35 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,6 @@
 
 # define OK 0
 # define ERROR -1
-
-# include "libft.h"
-# include <errno.h>
-# include <fcntl.h>
-# include <unistd.h>
 
 char	**file_to_lines(char *file_name);
 

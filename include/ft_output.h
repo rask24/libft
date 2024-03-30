@@ -6,14 +6,12 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 12:19:09 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/24 12:20:57 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/03/30 15:30:01 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_OUTPUT_H
 # define FT_OUTPUT_H
-
-# include <unistd.h>
 
 void				ft_putchar_fd(char c, int fd);
 void				ft_putendl_fd(char *s, int fd);

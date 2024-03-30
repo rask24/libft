@@ -6,10 +6,13 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 15:02:52 by reasuke           #+#    #+#             */
-/*   Updated: 2023/11/03 15:21:35 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/03/30 15:38:02 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stddef.h>
+#include <stdlib.h>
+#include <unistd.h>
 #include "get_next_line.h"
 
 static char	*append_to_save(char **save, int fd)

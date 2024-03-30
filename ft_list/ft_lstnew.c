@@ -6,10 +6,11 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 13:08:55 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/24 12:17:06 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/03/30 15:22:57 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "ft_list.h"
 
 t_list	*ft_lstnew(void *content)

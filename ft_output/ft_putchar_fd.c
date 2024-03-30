@@ -6,11 +6,11 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 01:37:36 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/24 12:20:33 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/03/30 15:30:06 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_output.h"
+#include <unistd.h>
 
 void	ft_putchar_fd(char c, int fd)
 {

@@ -6,11 +6,11 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 00:06:19 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/24 12:25:26 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/03/30 15:26:13 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_memory.h"
+#include <stddef.h>
 
 void	ft_bzero(void *s, size_t n)
 {

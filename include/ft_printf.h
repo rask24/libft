@@ -6,19 +6,17 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 14:20:27 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/24 12:41:21 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/03/30 15:41:20 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include <stdarg.h>
-# include <stdbool.h>
-# include <stddef.h>
-# include <stdint.h>
-# include <stdlib.h>
-# include <unistd.h>
+#include <stdarg.h>
+#include <stdbool.h>
+#include <stddef.h>
+#include <stdint.h>
 
 # define OCT_BASE "01234567"
 # define DEC_BASE "0123456789"
