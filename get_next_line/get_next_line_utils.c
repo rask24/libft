@@ -6,10 +6,11 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/30 16:03:32 by reasuke           #+#    #+#             */
-/*   Updated: 2023/11/03 15:20:53 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/03/30 15:38:11 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "get_next_line.h"
 
 size_t	gnl_strlen(const char *s)

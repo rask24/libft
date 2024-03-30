@@ -6,11 +6,11 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 00:54:42 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/24 12:26:29 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/03/30 15:28:15 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_memory.h"
+#include <stddef.h>
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {

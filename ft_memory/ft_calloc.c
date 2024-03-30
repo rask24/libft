@@ -6,10 +6,11 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 01:17:23 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/24 12:25:35 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/03/30 15:27:06 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "ft_memory.h"
 
 void	*ft_calloc(size_t count, size_t size)

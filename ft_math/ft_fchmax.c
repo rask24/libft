@@ -6,11 +6,11 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 19:53:14 by reasuke           #+#    #+#             */
-/*   Updated: 2024/03/20 22:53:39 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/03/30 15:25:08 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_math.h"
+#include <stdbool.h>
 
 bool	ft_fchmax(double *a, double b)
 {

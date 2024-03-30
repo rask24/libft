@@ -6,11 +6,11 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/30 19:54:01 by reasuke           #+#    #+#             */
-/*   Updated: 2024/03/20 22:47:49 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/03/30 15:24:52 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_math.h"
+#include <stdbool.h>
 
 bool	ft_chmin(int *a, int b)
 {

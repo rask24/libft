@@ -6,14 +6,12 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 12:13:13 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/24 12:17:45 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/03/30 15:20:22 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_LIST_H
 # define FT_LIST_H
-
-# include <stdlib.h>
 
 typedef struct s_list
 {

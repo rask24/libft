@@ -6,11 +6,11 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 00:13:40 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/24 12:26:22 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/03/30 15:27:24 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_memory.h"
+#include <stddef.h>
 
 void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {

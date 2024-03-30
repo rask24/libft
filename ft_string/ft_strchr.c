@@ -6,11 +6,11 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 14:53:37 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/24 12:31:37 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/03/30 15:33:24 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_string.h"
+#include <stddef.h>
 
 char	*ft_strchr(const char *s, int c)
 {

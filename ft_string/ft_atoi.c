@@ -6,11 +6,12 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 16:18:20 by reasuke           #+#    #+#             */
-/*   Updated: 2024/03/30 15:04:46 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/03/30 15:32:31 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_string.h"
+#include <stddef.h>
+#include "ft_strtol.h"
 
 int	ft_atoi(const char *str)
 {

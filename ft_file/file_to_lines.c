@@ -6,10 +6,15 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 18:22:21 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/24 12:36:55 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/03/30 15:37:20 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <errno.h>
+#include <fcntl.h>
+#include <stdbool.h>
+#include <stdlib.h>
+#include <unistd.h>
 #include "ft_file.h"
 #include "ft_string.h"
 #include "get_next_line.h"
@@ -17,13 +22,13 @@
 static int	_count_lines(char *file_path)
 {
 	int		fd;
-	int		num_lines;
+	int		n;
 	char	*line;
 
 	fd = open(file_path, O_RDONLY);
 	if (fd == -1)
 		return (ERROR);
-	num_lines = 0;
+	n = 0;
 	errno = 0;
 	while (true)
 	{
@@ -36,12 +41,12 @@ static int	_count_lines(char *file_path)
 			break ;
 		}
 		free(line);
-		num_lines++;
+		n++;
 	}
-	return (num_lines);
+	return (n);
 }
 
-static int	_fill_line_array(char **line_array, int num_lines, char *file_path)
+static int	_fill_lines(char **lines, int n, char *file_path)
 {
 	int		fd;
 	char	*line;
@@ -50,7 +55,7 @@ static int	_fill_line_array(char **line_array, int num_lines, char *file_path)
 	if (fd == -1)
 		return (ERROR);
 	errno = 0;
-	while (num_lines--)
+	while (n--)
 	{
 		line = get_next_line(fd);
 		if (!line)
@@ -58,29 +63,29 @@ static int	_fill_line_array(char **line_array, int num_lines, char *file_path)
 			close(fd);
 			if (errno != 0)
 			{
-				ft_free_strs(line_array);
+				ft_free_strs(lines);
 				return (ERROR);
 			}
 			break ;
 		}
-		*line_array++ = line;
+		*lines++ = line;
 	}
-	*line_array = NULL;
+	*lines = NULL;
 	return (OK);
 }
 
 char	**file_to_lines(char *file_path)
 {
-	int		num_lines;
-	char	**line_array;
+	int		n;
+	char	**lines;
 
-	num_lines = _count_lines(file_path);
-	if (num_lines == ERROR)
+	n = _count_lines(file_path);
+	if (n == ERROR)
 		return (NULL);
-	line_array = malloc(sizeof(char *) * (num_lines + 1));
-	if (!line_array)
+	lines = malloc(sizeof(char *) * (n + 1));
+	if (!lines)
 		return (NULL);
-	if (_fill_line_array(line_array, num_lines, file_path) == ERROR)
+	if (_fill_lines(lines, n, file_path) == ERROR)
 		return (NULL);
-	return (line_array);
+	return (lines);
 }

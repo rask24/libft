@@ -6,10 +6,11 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 14:21:01 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/24 12:16:44 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/03/30 15:22:18 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stddef.h>
 #include "ft_list.h"
 
 void	ft_lstclear(t_list **lst, void (*del)(void *))

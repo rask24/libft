@@ -6,11 +6,12 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 01:13:22 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/24 12:47:22 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/03/30 15:40:29 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_memory.h"
+#include <stdlib.h>
+#include <unistd.h>
 #include "ft_printf.h"
 
 void	*ft_xmalloc(size_t size)
