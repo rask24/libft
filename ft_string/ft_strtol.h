@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 14:46:40 by reasuke           #+#    #+#             */
-/*   Updated: 2024/03/30 14:50:17 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/03/30 15:04:20 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,7 @@ typedef struct s_tol_info
 	int				digit_cnt;
 	int				overflow;
 }					t_tol_info;
+
+long				ft_strtol(const char *str, char **endptr, int base);
 
 #endif
