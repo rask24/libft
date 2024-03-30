@@ -6,19 +6,15 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 12:28:56 by reasuke           #+#    #+#             */
-/*   Updated: 2024/03/30 14:57:33 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/03/30 15:00:01 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_STRING_H
 # define FT_STRING_H
 
-# include <errno.h>
-# include <limits.h>
-# include <stdbool.h>
 # include <stddef.h>
 # include <stdint.h>
-# include <stdlib.h>
 
 int					ft_atoi(const char *str);
 void				*ft_free_strs(char **strs);

@@ -6,10 +6,11 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 17:49:30 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/24 12:32:23 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/03/30 15:01:06 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "ft_string.h"
 
 char	*ft_strdup(const char *s1)

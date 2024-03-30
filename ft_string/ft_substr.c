@@ -6,10 +6,11 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 12:34:33 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/24 12:33:14 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/03/30 15:02:07 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "ft_string.h"
 
 char	*ft_substr(const char *s, unsigned int start, size_t len)

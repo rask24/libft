@@ -6,10 +6,11 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 23:01:26 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/24 12:33:12 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/03/30 15:02:02 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "ft_string.h"
 
 char	*ft_strtrim(const char *s1, const char *set)

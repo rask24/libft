@@ -6,10 +6,12 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 16:42:38 by reasuke           #+#    #+#             */
-/*   Updated: 2024/03/30 14:57:30 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/03/30 14:59:36 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <errno.h>
+#include <limits.h>
 #include "ft_string.h"
 #include "ft_type.h"
 #include "ft_strtol.h"

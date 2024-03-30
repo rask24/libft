@@ -6,10 +6,11 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 22:50:20 by reasuke           #+#    #+#             */
-/*   Updated: 2024/02/24 12:32:44 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/03/30 15:01:38 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include "ft_string.h"
 
 char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))

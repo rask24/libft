@@ -6,10 +6,12 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 01:28:34 by reasuke           #+#    #+#             */
-/*   Updated: 2024/03/27 11:20:19 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/03/30 15:02:39 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdbool.h>
+#include <stdlib.h>
 #include "ft_string.h"
 
 static int	calc_digits(unsigned int n)
