@@ -100,6 +100,7 @@ TYPE_DIR		= ft_type
 SRC				+= $(TYPE_DIR)/ft_isalnum.c \
 					$(TYPE_DIR)/ft_isalpha.c \
 					$(TYPE_DIR)/ft_isascii.c \
+					$(TYPE_DIR)/ft_isblank.c \
 					$(TYPE_DIR)/ft_isdigit.c \
 					$(TYPE_DIR)/ft_isprint.c \
 					$(TYPE_DIR)/ft_isspace.c \
