@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/24 12:28:56 by reasuke           #+#    #+#             */
-/*   Updated: 2024/03/30 15:31:56 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/06/20 20:04:53 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stddef.h>
 
 int					ft_atoi(const char *str);
+char				*ft_basename(char *pathname);
 void				*ft_free_strs(char **strs);
 char				*ft_itoa(int n);
 char				**ft_split(const char *s, char c);
