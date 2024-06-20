@@ -6,13 +6,13 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:06:58 by reasuke           #+#    #+#             */
-/*   Updated: 2024/03/30 15:32:43 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/06/20 23:34:07 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-void	*ft_free_strs(char **strs)
+void	ft_free_strs(char **strs)
 {
 	char	**tmp;
 
@@ -20,5 +20,4 @@ void	*ft_free_strs(char **strs)
 	while (*tmp)
 		free(*tmp++);
 	free(strs);
-	return (NULL);
 }
