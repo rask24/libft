@@ -14,6 +14,7 @@ TEST_BUILD_DIR	= test/build
 
 # test files
 TEST_SRC		= $(TEST_DIR)/test_strcmp.cpp \
+					$(TEST_DIR)/test_basename.cpp \
 					$(TEST_DIR)/test_strstr.cpp \
 					$(TEST_DIR)/test_itoa.cpp \
 					$(TEST_DIR)/test_strndup.cpp \

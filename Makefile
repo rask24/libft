@@ -75,6 +75,7 @@ SRC				+= $(PRINTF_DIR)/configure_format_info.c \
 
 STRING_DIR		= ft_string
 SRC				+= $(STRING_DIR)/ft_atoi.c \
+					$(STRING_DIR)/ft_basename.c \
 					$(STRING_DIR)/ft_free_strs.c \
 					$(STRING_DIR)/ft_itoa.c \
 					$(STRING_DIR)/ft_split.c \
