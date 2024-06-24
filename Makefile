@@ -47,7 +47,7 @@ SRC				+= $(MEMORY_DIR)/ft_bzero.c \
 					$(MEMORY_DIR)/ft_memccpy.c \
 					$(MEMORY_DIR)/ft_memchr.c \
 					$(MEMORY_DIR)/ft_memcmp.c \
-					$(MEMORY_DIR)/ft_memcmp.c \
+					$(MEMORY_DIR)/ft_memcpy.c \
 					$(MEMORY_DIR)/ft_memmove.c \
 					$(MEMORY_DIR)/ft_memset.c \
 					$(MEMORY_DIR)/ft_xmalloc.c
