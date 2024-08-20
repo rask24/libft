@@ -1,74 +1,73 @@
-# executable files
-TEST_NAME		= unit_tester
+# Main target
+TEST_NAME			= unit_tester
 
-# compilar options
-CXXFLAGS		= -std=c++17 -Wall -Wextra -Werror
-PROD_FLAGS		= -O3
-LD_FLAGS		= -L .
-LD_LIBS			= -lft
+# Compiler and flags
+CXXFLAGS			= -std=c++17 -Wall -Wextra -Werror
+LD_FLAGS			= -L.
+LD_LIBS				= -lft
 
-# directories
-TEST_DIR		= test/unit
-GTEST_DIR		= test/unit/gtest
-TEST_BUILD_DIR	= test/build
+# Directories
+TEST_DIR			= tests
+GTEST_DIR			= googletest
+TEST_BUILD_DIR		= build/tests
 
-# test files
-TEST_SRC		= $(TEST_DIR)/test_strcmp.cpp \
-					$(TEST_DIR)/test_basename.cpp \
-					$(TEST_DIR)/test_strstr.cpp \
-					$(TEST_DIR)/test_itoa.cpp \
-					$(TEST_DIR)/test_strndup.cpp \
-					$(TEST_DIR)/test_strtol.cpp \
-					$(TEST_DIR)/test_math.cpp \
-					$(TEST_DIR)/test_type.cpp \
-					$(TEST_DIR)/test_lst_before.cpp \
-					$(TEST_DIR)/test_file_to_lines.cpp
-TEST_OBJ		= $(patsubst $(TEST_DIR)/%.cpp, $(TEST_BUILD_DIR)/%.o, $(TEST_SRC))
-GTEST_SRC		= $(GTEST_DIR)/gtest_main.cc $(GTEST_DIR)/gtest-all.cc
-GTEST_OBJ		= $(patsubst $(GTEST_DIR)/%.cc, $(TEST_BUILD_DIR)/%.o, $(GTEST_SRC))
+# Google Test settings
+GTEST_VERSION		= 1.15.0
+GTEST_URL			= https://github.com/google/googletest/archive/refs/tags/v$(GTEST_VERSION).tar.gz
 
-# google test version: 1.14.0
-GTEST_ARCHIVE	= v1.14.0.tar.gz
-GTEST_REPO_URL	= https://github.com/google/googletest/archive/refs/tags/v1.14.0.tar.gz
-GTEST_SRC_DIR	= googletest-1.14.0
-GTEST_FUSE_URL	= https://raw.githubusercontent.com/google/googletest/ec44c6c1675c25b9827aacd08c02433cccde7780/googletest/scripts/fuse_gtest_files.py
-GTEST_FUSE		= fuse_gtest_files.py
+# Source files
+TEST_SRC			= $(TEST_DIR)/test_strcmp.cpp \
+						$(TEST_DIR)/test_basename.cpp \
+						$(TEST_DIR)/test_strstr.cpp \
+						$(TEST_DIR)/test_itoa.cpp \
+						$(TEST_DIR)/test_strndup.cpp \
+						$(TEST_DIR)/test_strtol.cpp \
+						$(TEST_DIR)/test_math.cpp \
+						$(TEST_DIR)/test_type.cpp \
+						$(TEST_DIR)/test_lst_before.cpp \
+						$(TEST_DIR)/test_file_to_lines.cpp
+TEST_OBJ			= $(patsubst $(TEST_DIR)/%.cpp, $(TEST_BUILD_DIR)/%.o, $(TEST_SRC))
+TEST_DEP			= $(patsubst $(TEST_DIR)/%.cpp, $(TEST_BUILD_DIR)/%.d, $(TEST_SRC))
 
-# rules for test
+# Google Test build marker
+GTEST_MARKER		= $(GTEST_DIR)/.built
+
+# Main test rule
 .PHONY: test
-test: all $(GTEST_OBJ) $(TEST_OBJ)
-	@$(CXX) -lpthread $(TEST_OBJ) $(GTEST_OBJ) $(LD_FLAGS) $(LD_LIBS) -o $(TEST_NAME)
-	@echo "\n$(BLUE)[gtest]\t\t./$(TEST_NAME)$(RESET)\t$(GREEN)compiled ✔$(RESET)"
-	./$(TEST_NAME)
+test: all $(TEST_NAME)
+	@echo "Running tests..."
+	@./$(TEST_NAME)
 
-.PHONY: clean_test
-clean_test:
-	@$(RM) -r $(TEST_BUILD_DIR)
-	@echo "$(BLUE)[gtest]\t\t./$(TEST_NAME)$(RESET)\t$(GREEN)deleted ✔$(RESET)"
+# Build the test executable
+$(TEST_NAME): $(GTEST_MARKER) $(TEST_OBJ) $(OBJ)
+	@echo "Linking $@..."
+	@$(CXX) $(CXXFLAGS) $(TEST_OBJ) $(OBJ) -o $@ -L$(GTEST_DIR)/lib $(LD_FLAGS) $(LD_LIBS) -lgtest -lgtest_main -lpthread
 
-.PHONY: re_test
-re_test: clean_test test
+-include $(TEST_DEP)
 
+# Compile test source files
 $(TEST_BUILD_DIR)/%.o: $(TEST_DIR)/%.cpp
 	@mkdir -p $(@D)
-	@$(CXX) $(CXXFLAGS) -I $(TEST_DIR) $(INCLUDE) -c $< -o $@
-	@printf "$(GREEN)─$(RESET)"
+	@echo "Compiling $<..."
+	@$(CXX) $(CXXFLAGS) $(INCLUDE) $(DEP_FLAGS) -I$(GTEST_DIR)/googletest/include -c $< -o $@
 
-$(GTEST_OBJ): $(GTEST_DIR)
-	@echo "$(BLUE)[gtest]\t\t./$(TEST_NAME)$(RESET)\t$(WHITE)compling...$(RESET)"
-	@mkdir -p $(@D)
-	@$(CXX) $(CXXFLAGS) -I $(TEST_DIR) $(INCLUDE) -c $(GTEST_DIR)/gtest-all.cc -o $(TEST_BUILD_DIR)/gtest-all.o
-	@printf "$(GREEN)─$(RESET)"
-	@$(CXX) $(CXXFLAGS) -I $(TEST_DIR) $(INCLUDE) -c $(GTEST_DIR)/gtest_main.cc -o $(TEST_BUILD_DIR)/gtest_main.o
-	@printf "$(GREEN)─$(RESET)"
+# Build Google Test
+$(GTEST_MARKER): $(GTEST_DIR)/CMakeLists.txt
+	@echo "Building Google Test..."
+	@cd $(GTEST_DIR) && cmake -DCMAKE_CXX_FLAGS=-std=c++17 . && make
+	@touch $@
 
-$(GTEST_DIR):
-	@echo "fetching google test"
-	@curl -#OL $(GTEST_REPO_URL)
-	@echo "fetching fuse_gtest_files.py"
-	@curl -#OL $(GTEST_FUSE_URL)
-	@tar -xzf $(GTEST_ARCHIVE) $(GTEST_SRC_DIR)
-	@python3 $(GTEST_FUSE) $(GTEST_SRC_DIR)/googletest $(GTEST_DIR)
-	@mv $(GTEST_SRC_DIR)/googletest/src/gtest_main.cc $(GTEST_DIR)
-	@mv $(GTEST_DIR)/gtest/* $(GTEST_DIR)
-	@$(RM) -r $(GTEST_SRC_DIR) $(GTEST_DIR)/gtest $(GTEST_ARCHIVE) $(GTEST_FUSE)
+$(GTEST_DIR)/CMakeLists.txt:
+	@echo "Downloading Google Test..."
+	@mkdir -p $(GTEST_DIR)
+	@curl -L $(GTEST_URL) | tar xz -C $(GTEST_DIR) --strip-components=1
+
+# Clean test files
+.PHONY: clean_test
+clean_test:
+	@echo "Cleaning test files..."
+	@$(RM) -r $(TEST_BUILD_DIR) $(TEST_NAME) $(GTEST_DIR)
+
+# Full rebuild of tests
+.PHONY: re_test
+re_test: clean_test test
