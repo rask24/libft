@@ -38,8 +38,7 @@ test: all $(TEST_NAME)
 	@./$(TEST_NAME)
 
 # Build the test executable
-$(TEST_NAME): $(GTEST_MARKER) $(OBJ)
-	echo $(OBJ) $(TEST_OBJ)
+$(TEST_NAME): $(GTEST_MARKER) $(TEST_OBJ) $(OBJ)
 	@echo "Linking $@..."
 	@$(CXX) $(CXXFLAGS) $(TEST_OBJ) $(OBJ) -o $@ -L$(GTEST_DIR)/lib $(LD_FLAGS) $(LD_LIBS) -lgtest -lgtest_main -lpthread
 
@@ -49,7 +48,7 @@ $(TEST_NAME): $(GTEST_MARKER) $(OBJ)
 $(TEST_BUILD_DIR)/%.o: $(TEST_DIR)/%.cpp
 	@mkdir -p $(@D)
 	@echo "Compiling $<..."
-	@$(CXX) $(CXXFLAGS) -I$(INC_DIR) $(DEP_FLAGS) -I$(GTEST_DIR)/googletest/include -c $< -o $@
+	@$(CXX) $(CXXFLAGS) $(INCLUDE) $(DEP_FLAGS) -I$(GTEST_DIR)/googletest/include -c $< -o $@
 
 # Build Google Test
 $(GTEST_MARKER): $(GTEST_DIR)/CMakeLists.txt

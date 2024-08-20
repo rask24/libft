@@ -3,7 +3,7 @@ NAME			= libft.a
 
 # compiler options
 CFLAGS			= -Wall -Wextra -Werror
-INCLUDE			= -I $(INC_DIR)
+INCLUDE			= -I$(INC_DIR)
 ARFLAGS			= crs
 
 # directories and source files
@@ -46,7 +46,6 @@ SRC				+= $(MEMORY_DIR)/ft_bzero.c \
 					$(MEMORY_DIR)/ft_calloc.c \
 					$(MEMORY_DIR)/ft_memccpy.c \
 					$(MEMORY_DIR)/ft_memchr.c \
-					$(MEMORY_DIR)/ft_memcmp.c \
 					$(MEMORY_DIR)/ft_memcmp.c \
 					$(MEMORY_DIR)/ft_memmove.c \
 					$(MEMORY_DIR)/ft_memset.c \
