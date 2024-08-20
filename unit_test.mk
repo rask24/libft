@@ -7,9 +7,9 @@ LD_FLAGS			= -L.
 LD_LIBS				= -lft
 
 # Directories
-TEST_DIR			= test
+TEST_DIR			= tests
 GTEST_DIR			= googletest
-TEST_BUILD_DIR		= build/test
+TEST_BUILD_DIR		= build/tests
 
 # Google Test settings
 GTEST_VERSION		= 1.15.0
