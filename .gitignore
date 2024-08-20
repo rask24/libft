@@ -64,7 +64,7 @@ libft-tester-tokyo/
 pdf/
 
 # google tests
-gtest
+googletest
 unit_tester
 
 # vscode settings
