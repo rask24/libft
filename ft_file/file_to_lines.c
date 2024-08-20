@@ -6,7 +6,7 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/26 18:22:21 by reasuke           #+#    #+#             */
-/*   Updated: 2024/03/30 15:37:20 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/06/28 02:40:47 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,19 +58,16 @@ static int	_fill_lines(char **lines, int n, char *file_path)
 	while (n--)
 	{
 		line = get_next_line(fd);
-		if (!line)
+		if (errno)
 		{
+			ft_free_strs(lines);
 			close(fd);
-			if (errno != 0)
-			{
-				ft_free_strs(lines);
-				return (ERROR);
-			}
-			break ;
+			return (ERROR);
 		}
 		*lines++ = line;
 	}
 	*lines = NULL;
+	close(fd);
 	return (OK);
 }
 

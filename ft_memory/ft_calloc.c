@@ -6,10 +6,11 @@
 /*   By: reasuke <reasuke@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/03 01:17:23 by reasuke           #+#    #+#             */
-/*   Updated: 2024/03/30 15:27:06 by reasuke          ###   ########.fr       */
+/*   Updated: 2024/06/28 03:15:44 by reasuke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdint.h>
 #include <stdlib.h>
 #include "ft_memory.h"
 

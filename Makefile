@@ -47,6 +47,7 @@ SRC				+= $(MEMORY_DIR)/ft_bzero.c \
 					$(MEMORY_DIR)/ft_memccpy.c \
 					$(MEMORY_DIR)/ft_memchr.c \
 					$(MEMORY_DIR)/ft_memcmp.c \
+					$(MEMORY_DIR)/ft_memcpy.c \
 					$(MEMORY_DIR)/ft_memmove.c \
 					$(MEMORY_DIR)/ft_memset.c \
 					$(MEMORY_DIR)/ft_xmalloc.c
@@ -74,6 +75,7 @@ SRC				+= $(PRINTF_DIR)/configure_format_info.c \
 
 STRING_DIR		= ft_string
 SRC				+= $(STRING_DIR)/ft_atoi.c \
+					$(STRING_DIR)/ft_basename.c \
 					$(STRING_DIR)/ft_free_strs.c \
 					$(STRING_DIR)/ft_itoa.c \
 					$(STRING_DIR)/ft_split.c \
