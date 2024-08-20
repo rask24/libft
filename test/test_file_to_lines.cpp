@@ -8,7 +8,7 @@ extern "C" {
 }
 
 TEST(file_to_lines, normal) {
-  const char *file_path = "./test/unit/fixture/normal.txt";
+  const char *file_path = "./test/fixture/normal.txt";
   char **lines = file_to_lines(const_cast<char *>(file_path));
   std::vector<char const *> ans = {"abc\n", "def\n", "123\n"};
 
@@ -18,14 +18,14 @@ TEST(file_to_lines, normal) {
 }
 
 TEST(file_to_lines, empty) {
-  const char *file_path = "./test/unit/fixture/empty.txt";
+  const char *file_path = "./test/fixture/empty.txt";
   char **lines = file_to_lines(const_cast<char *>(file_path));
 
   EXPECT_EQ(lines[0], nullptr);
 }
 
 TEST(file_to_lines, noNewline) {
-  const char *file_path = "./test/unit/fixture/one_line_with_no_newline.txt";
+  const char *file_path = "./test/fixture/one_line_with_no_newline.txt";
   char **lines = file_to_lines(const_cast<char *>(file_path));
 
   EXPECT_EQ(
@@ -34,7 +34,7 @@ TEST(file_to_lines, noNewline) {
 }
 
 TEST(file_to_lines, lineNoTrailingNewline) {
-  const char *file_path = "./test/unit/fixture/lines_no_trailing_newline.txt";
+  const char *file_path = "./test/fixture/lines_no_trailing_newline.txt";
   char **lines = file_to_lines(const_cast<char *>(file_path));
   std::vector<char const *> ans = {"hello\n", "world\n", "42\n", "tokyo"};
 

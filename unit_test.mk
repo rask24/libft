@@ -7,7 +7,7 @@ LD_FLAGS			= -L.
 LD_LIBS				= -lft
 
 # Directories
-TEST_DIR			= test/unit
+TEST_DIR			= test
 GTEST_DIR			= googletest
 TEST_BUILD_DIR		= build/test
 
